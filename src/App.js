@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Route, Link} from 'react-router-dom';
+import New from './containers/newConsumerContainer'
+import Login from './containers/consumerLoginContainer'
+
 
 class App extends Component {
   render() {
@@ -9,10 +13,13 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
+          <Link to='/new'>Register as consumer</Link>
+          <Link to='/consumer/login'>Login as consumer</Link>
+
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+      <Route path="/new" component={New} />
+      <Route path="/consumer/login" component={Login} />
       </div>
     );
   }
