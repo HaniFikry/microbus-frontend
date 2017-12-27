@@ -1,6 +1,10 @@
 import Login from '../components/login'
 import {connect} from 'react-redux';
+
 import {userLoginLoading, userLogin, userLoginSuccess, userLoginFailure} from '../actions/consumer'
+import setAuthorizationToken from '../utils/setAuthorizationToken';
+import history from '../history'
+
 
 const mapStateToProps = function(state) {
   return {
@@ -14,14 +18,19 @@ const mapDispatchToProps = function(dispatch) {
     loginConsumer: function(consumer){
       dispatch(userLoginLoading());
       dispatch(userLogin(consumer)).then(function(response){
-        // const token = response.data.token;
-        // localStorage.setItem('jwtToken', token);
+        if(response.payload.status < 400){
+        const token = response.payload.data.auth_token;
+        localStorage.setItem('jwtToken', token);
+        setAuthorizationToken(token);
+        console.log(response.payload.data)
         dispatch(userLoginSuccess(response));
-      }).catch(function(error){
-        dispatch(userLoginFailure(error))
-      })
-    }
+        history.push('/');
+      }else {
+        dispatch(userLoginFailure(response.payload.error))
+      }
+    })
   }
+}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
