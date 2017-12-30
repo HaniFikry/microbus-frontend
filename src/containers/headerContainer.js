@@ -1,10 +1,9 @@
 import Header from '../components/header'
 import {connect} from 'react-redux'
 import {userLogout, fetchUser, fetchUserSuccess} from '../actions/consumer'
+import {vendorLogout, fetchVendor, fetchVendorSuccess} from '../actions/vendor'
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import history from '../history'
-
-
 
 
 const mapStateToProps = function(state) {
@@ -22,7 +21,6 @@ const mapDispatchToProps = function(dispatch) {
       setAuthorizationToken(false);
       history.push('/');
 
-
     },
     getUser: function(){
       dispatch(fetchUser()).then(function(response){
@@ -30,7 +28,15 @@ const mapDispatchToProps = function(dispatch) {
         dispatch(fetchUserSuccess(response));
       }
       })
+    },
+    getVendor:()=>{
+      dispatch(fetchVendor()).then(function(response){
+        if(response.payload.status < 400){
+        dispatch(fetchVendorSuccess(response));
+      }
+      })
     }
   }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

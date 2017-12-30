@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
 import microbus from './microbus';
+import vendor from './vendor';
 
 const rootReducer = combineReducers({
-    microbus
+    microbus, vendor
 })
+
 
 export default rootReducer;

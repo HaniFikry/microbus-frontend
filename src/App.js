@@ -5,6 +5,9 @@ import {Route, Link} from 'react-router-dom';
 import New from './containers/newConsumerContainer'
 import Login from './containers/consumerLoginContainer'
 import Header from './containers/headerContainer'
+import NewVendor from './containers/newVendorContainer'
+import VendorLogin from './containers/vendorLoginContainer'
+// import Header from './containers/headerContainer'
 
 
 class App extends Component {
@@ -17,6 +20,8 @@ class App extends Component {
 
       <Route path="/new" component={New} />
       <Route path="/consumer/login" component={Login} />
+      <Route path="/vendor/login" component={Login} />      
+            
       </div>
     );
   }

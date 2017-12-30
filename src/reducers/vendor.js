@@ -1,4 +1,4 @@
-import {REGISTER_NEW_USER_LOADING, REGISTER_NEW_USER_SUCCESS, REGISTER_NEW_USER_FAILURE, USER_LOGIN_LOADING, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE, USER_LOGOUT, FETCH_USER_SUCCESS} from '../actions/consumer'
+import {REGISTER_NEW_VENDOR_LOADING, REGISTER_NEW_VENDOR_SUCCESS, REGISTER_NEW_VENDOR_FAILURE, VENDOR_LOGIN_LOADING, VENDOR_LOGIN_SUCCESS, VENDOR_LOGIN_FAILURE, VENDOR_LOGOUT, FETCH_VENDOR_SUCCESS} from '../actions/vendor'
 
 const INITIAL_STATE = {
   message: '',
@@ -9,30 +9,30 @@ const INITIAL_STATE = {
 
 export default function(currentState = INITIAL_STATE, action) {
   switch (action.type) {
-    case REGISTER_NEW_USER_LOADING:
+    case REGISTER_NEW_VENDOR_LOADING:
         return {
           ...currentState,
           loading: true
         }
         // break;
-    case REGISTER_NEW_USER_SUCCESS:
+    case REGISTER_NEW_VENDOR_SUCCESS:
         return {
           ...currentState,
           message: action.message,
           loading: false
         }
-    case REGISTER_NEW_USER_FAILURE:
+    case REGISTER_NEW_VENDOR_FAILURE:
         return {
           ...currentState,
           error: action.error,
           loading: false
         }
-    case USER_LOGIN_LOADING:
+    case VENDOR_LOGIN_LOADING:
         return {
           ...currentState,
           loading:true
         }
-    case USER_LOGIN_SUCCESS:
+    case VENDOR_LOGIN_SUCCESS:
         return {
           ...currentState,
           isAuthenticated: true,
@@ -40,19 +40,19 @@ export default function(currentState = INITIAL_STATE, action) {
           loading: false
         }
 
-    case USER_LOGIN_FAILURE:
+    case VENDOR_LOGIN_FAILURE:
         return {
           ...currentState,
           loading:false,
           error: action.error
         }
-    case USER_LOGOUT:
+    case VENDOR_LOGOUT:
       return {
         ...currentState,
         isAuthenticated: false,
         user: {}
       }
-    case FETCH_USER_SUCCESS:
+    case FETCH_VENDOR_SUCCESS:
       return {
         ...currentState,
         user: action.user
