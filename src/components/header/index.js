@@ -22,8 +22,10 @@ export default class Header extends Component {
     } else {
     return (
       <div>
-        <Link to='/new'>Register as consumer</Link>
+        <Link to='/new_consumer'>Register as consumer</Link>
+        <Link to='/new_vendor'>Register as vendor</Link>
         <Link to='/consumer/login'>Login as consumer</Link>
+        <Link to='/vendor/login'>Login as consumer</Link>
       </div>
     )
   }

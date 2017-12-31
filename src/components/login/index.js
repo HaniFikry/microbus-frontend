@@ -34,7 +34,7 @@ export default class Login extends Component {
           <input type="password" value={this.state.password} name='password' onChange={this.handleChange.bind(this)} required={true}/>
         </label>
       </div>
-        <input type="submit" value="Register"  />
+        <input type="submit" value="Login"  />
 
       </form>
       </div>
