@@ -1,12 +1,20 @@
+<<<<<<< HEAD
 import {REGISTER_NEW_USER_LOADING, REGISTER_NEW_USER_SUCCESS, REGISTER_NEW_USER_FAILURE, USER_LOGIN_LOADING, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE, USER_LOGOUT, FETCH_USER_SUCCESS, FETCH_WISHLIST_LOADING, FETCH_WISHLIST_SUCCESS, FETCH_WISHLIST_FAILURE, ADD_ITEM_TO_WISHLIST_LOADING, ADD_ITEM_TO_WISHLIST_SUCCESS, ADD_ITEM_TO_WISHLIST_FAILURE, CREATE_WISHLIST_ITEM_LOADING, CREATE_WISHLIST_ITEM_SUCCESS, CREATE_WISHLIST_ITEM_FAILURE} from '../actions/consumer'
+=======
+import {REGISTER_NEW_USER_LOADING, REGISTER_NEW_USER_SUCCESS, REGISTER_NEW_USER_FAILURE, USER_LOGIN_LOADING, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE, USER_LOGOUT, FETCH_USER_SUCCESS} from '../actions/consumer'
+>>>>>>> 625a40e145dd5a2c86256f0f97a0f1fc5a6ab2ec
 
 const INITIAL_STATE = {
   message: '',
   loading: false,
   isAuthenticated: localStorage.jwtToken,
+<<<<<<< HEAD
   user: {},
   wishlist: [],
   error: null
+=======
+  user: {}
+>>>>>>> 625a40e145dd5a2c86256f0f97a0f1fc5a6ab2ec
 }
 
 export default function(currentState = INITIAL_STATE, action) {
@@ -60,6 +68,7 @@ export default function(currentState = INITIAL_STATE, action) {
         user: action.user
       }
 
+<<<<<<< HEAD
     case FETCH_WISHLIST_LOADING:
       return{
       ...currentState,
@@ -125,3 +134,9 @@ export default function(currentState = INITIAL_STATE, action) {
 
   }
 }
+=======
+    default:
+      return currentState
+  }
+  }
+>>>>>>> 625a40e145dd5a2c86256f0f97a0f1fc5a6ab2ec

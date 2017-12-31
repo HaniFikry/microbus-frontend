@@ -16,6 +16,10 @@ export default class Header extends Component {
         <div>
           <p> signed in as {user.consumer_email} </p>
           <a href="#" onClick={() => logout()}>Sign out</a>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 625a40e145dd5a2c86256f0f97a0f1fc5a6ab2ec
         </div>
       )
     } else {
