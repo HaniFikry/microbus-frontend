@@ -22,14 +22,8 @@ const mapDispatchToProps = function(dispatch) {
         const token = response.payload.data.auth_token;
         localStorage.setItem('jwtToken', token);
         setAuthorizationToken(token);
-<<<<<<< HEAD
         dispatch(userLoginSuccess(response));
         history.push('/profile');
-=======
-        console.log(response.payload.data)
-        dispatch(userLoginSuccess(response));
-        history.push('/');
->>>>>>> 625a40e145dd5a2c86256f0f97a0f1fc5a6ab2ec
       }else {
         dispatch(userLoginFailure(response.payload.error))
       }
