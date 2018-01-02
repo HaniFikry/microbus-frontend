@@ -5,13 +5,13 @@ import './App.css';
 import {Route, Link} from 'react-router-dom';
 import New from './containers/newConsumerContainer'
 import Login from './containers/consumerLoginContainer'
-import Header from './containers/headerContainer'
 import NewVendor from './containers/newVendorContainer'
 import VendorLogin from './containers/vendorLoginContainer'
 import Header from './containers/headerContainer'
-
 import search from './components/search'
-import profile from './containers/profileContainer'
+import consumer_profile from './containers/consumerProfileContainer'
+import vendor_profile from './containers/vendorProfileContainer'
+import offerForm from './containers/offerFormContainer'
 
 
 class App extends Component {
@@ -19,23 +19,17 @@ class App extends Component {
     return (
       <div className="App">
 
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
           <Header />
 
 
-      <Route path="/new" component={New} />
+      <Route path="/new_consumer" component={New} />
+      <Route path="/new_vendor" component={New} />
       <Route path="/consumer/login" component={Login} />
+      <Route path="/vendor/login" component={VendorLogin} />
+      <Route path="/consumer/profile" component={consumer_profile} />
+      <Route path="/vendor/profile" component={vendor_profile} />
+      <Route path="/products/:id" component={offerForm} />
 
-      <Route path="/vendor/login" component={Login} />
-
-
-      <Route path="/profile" component={profile} />
       </div>
     );
   }

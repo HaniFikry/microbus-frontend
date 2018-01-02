@@ -1,6 +1,7 @@
 import New from '../components/newconsumer'
 import {connect} from 'react-redux';
 import {registerNewUserLoading, registerNewUser, registerNewUserSuccess, registerNewUserFailure} from '../actions/consumer'
+import history from '../history'
 
 const mapStateToProps = function(state) {
   return {
@@ -14,6 +15,7 @@ const mapDispatchToProps = function(dispatch) {
       dispatch(registerNewUserLoading());
       dispatch(registerNewUser(newConsumer)).then(function(response){
         dispatch(registerNewUserSuccess(response));
+        history.push('/');
       }).catch(function(error){
         dispatch(registerNewUserFailure(error))
       })

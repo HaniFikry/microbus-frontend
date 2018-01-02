@@ -9,7 +9,7 @@ import history from '../history'
 const mapStateToProps = function(state) {
   return {
   user: state.microbus.user,
-  isAuthenticated: state.microbus.isAuthenticated
+  vendor: state.vendor.user
   }
 }
 
@@ -22,20 +22,25 @@ const mapDispatchToProps = function(dispatch) {
       history.push('/');
 
     },
+    vendorLogout: function(){
+      dispatch(vendorLogout());
+      localStorage.removeItem('jwtToken');
+      setAuthorizationToken(false);
+      history.push('/');
+
+    },
     getUser: function(){
       dispatch(fetchUser()).then(function(response){
         if(response.payload.status < 400){
+        if (response.payload.data.user_type == 'vendor'){
+        dispatch(fetchVendorSuccess(response));
+      } else if (response.payload.data.user_type == 'consumer') {
         dispatch(fetchUserSuccess(response));
       }
-      })
-    },
-    getVendor:()=>{
-      dispatch(fetchVendor()).then(function(response){
-        if(response.payload.status < 400){
-        dispatch(fetchVendorSuccess(response));
       }
       })
     }
+
   }
 }
 

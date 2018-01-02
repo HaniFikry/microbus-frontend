@@ -1,20 +1,14 @@
-<<<<<<< HEAD
-import {REGISTER_NEW_USER_LOADING, REGISTER_NEW_USER_SUCCESS, REGISTER_NEW_USER_FAILURE, USER_LOGIN_LOADING, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE, USER_LOGOUT, FETCH_USER_SUCCESS, FETCH_WISHLIST_LOADING, FETCH_WISHLIST_SUCCESS, FETCH_WISHLIST_FAILURE, ADD_ITEM_TO_WISHLIST_LOADING, ADD_ITEM_TO_WISHLIST_SUCCESS, ADD_ITEM_TO_WISHLIST_FAILURE, CREATE_WISHLIST_ITEM_LOADING, CREATE_WISHLIST_ITEM_SUCCESS, CREATE_WISHLIST_ITEM_FAILURE} from '../actions/consumer'
-=======
-import {REGISTER_NEW_USER_LOADING, REGISTER_NEW_USER_SUCCESS, REGISTER_NEW_USER_FAILURE, USER_LOGIN_LOADING, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE, USER_LOGOUT, FETCH_USER_SUCCESS} from '../actions/consumer'
->>>>>>> 625a40e145dd5a2c86256f0f97a0f1fc5a6ab2ec
+
+import {REGISTER_NEW_USER_LOADING, REGISTER_NEW_USER_SUCCESS, REGISTER_NEW_USER_FAILURE, USER_LOGIN_LOADING, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE, USER_LOGOUT, FETCH_USER_SUCCESS, FETCH_WISHLIST_LOADING, FETCH_WISHLIST_SUCCESS, FETCH_WISHLIST_FAILURE, ADD_ITEM_TO_WISHLIST_LOADING, ADD_ITEM_TO_WISHLIST_SUCCESS, ADD_ITEM_TO_WISHLIST_FAILURE, CREATE_WISHLIST_ITEM_LOADING, CREATE_WISHLIST_ITEM_SUCCESS, CREATE_WISHLIST_ITEM_FAILURE, DELETE_WISHLIST_ITEM_LOADING, DELETE_WISHLIST_ITEM_SUCCESS, DELETE_WISHLIST_ITEM_FAILURE} from '../actions/consumer'
+
 
 const INITIAL_STATE = {
   message: '',
   loading: false,
-  isAuthenticated: localStorage.jwtToken,
-<<<<<<< HEAD
   user: {},
   wishlist: [],
-  error: null
-=======
+  error: null,
   user: {}
->>>>>>> 625a40e145dd5a2c86256f0f97a0f1fc5a6ab2ec
 }
 
 export default function(currentState = INITIAL_STATE, action) {
@@ -45,7 +39,6 @@ export default function(currentState = INITIAL_STATE, action) {
     case USER_LOGIN_SUCCESS:
         return {
           ...currentState,
-          isAuthenticated: true,
           user: action.user,
           loading: false
         }
@@ -59,7 +52,7 @@ export default function(currentState = INITIAL_STATE, action) {
     case USER_LOGOUT:
       return {
         ...currentState,
-        isAuthenticated: false,
+        wishlist: [],
         user: {}
       }
     case FETCH_USER_SUCCESS:
@@ -68,7 +61,6 @@ export default function(currentState = INITIAL_STATE, action) {
         user: action.user
       }
 
-<<<<<<< HEAD
     case FETCH_WISHLIST_LOADING:
       return{
       ...currentState,
@@ -122,21 +114,33 @@ export default function(currentState = INITIAL_STATE, action) {
         loading: false
 
       }
-      case ADD_ITEM_TO_WISHLIST_FAILURE:
+      case CREATE_WISHLIST_ITEM_FAILURE:
       return {
         ...currentState,
         loading: false,
         error: action.error
       }
+      case DELETE_WISHLIST_ITEM_LOADING:
+      var newWishlist = currentState.wishlist.map(item => {
+      if (item.id == action.id) item.loading = true;
+      return item;
+      })
+      return {...currentState, wishlist: newWishlist}
 
+      case DELETE_WISHLIST_ITEM_SUCCESS:
+      var newWishlist = currentState.wishlist.filter(item => {
+      return item.id !== action.id
+      })
+      return {...currentState, wishlist: newWishlist}
+
+      case DELETE_WISHLIST_ITEM_FAILURE:
+      var newWishlist = currentState.wishlist.map(item => {
+      if (item.id == action.id) {item.loading = false; item.error = action.error}
+      return item;
+      })
+      return {...currentState, wishlist: newWishlist}
     default:
       return currentState
 
   }
 }
-=======
-    default:
-      return currentState
-  }
-  }
->>>>>>> 625a40e145dd5a2c86256f0f97a0f1fc5a6ab2ec

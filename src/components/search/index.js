@@ -31,15 +31,16 @@ export default class Complete extends Component {
 
 
 
-  onSelect = (id) => {
-    this.setState({id: id});
+  onSelect = (value, option) => {
+    this.setState({id: value});
+    this.setState({input: option.props.children});
   }
 
 
 
   render() {
     const { dataSource, input  } = this.state;
-    const {addWishListItem, createItem} = this.props;
+    const {addWishListItem, createItem, addProduct, createProduct} = this.props;
     if (dataSource.length === 0 && input !== ''){
     return (
       <div>
@@ -49,26 +50,21 @@ export default class Complete extends Component {
                 {opt.name}
               </Option>
             ))
-            .concat([
-  <Option disabled key="all">
-    <a
-      href="https://www.google.com/search?q=antd"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Add new item now
-    </a>
-  </Option>,
-]
-)
 }
         style={{ width: 200 }}
         onSelect={this.onSelect}
         allowClear= {true}
+        value={this.state.input}
         onSearch={this.handleSearch}
         placeholder="input here"
       />
-      <button onClick={() => createItem(this.state.input)}> ADD ITEM TO WISHLIST</button>
+      {
+        this.props.vendor ?
+        // <button onClick={() => {createItem(this.state.input); this.setState({input : ''})}}> {this.props.button_name}</button> :
+        <button onClick={() => { createProduct(this.state.input); this.setState({input : ''})}}> {this.props.button_name}</button>
+      :
+        <button onClick={() => { createItem(this.state.input); this.setState({input : ''})}}> {this.props.button_name}</button>
+      }
     </div>
     );
   } else {
@@ -82,10 +78,15 @@ export default class Complete extends Component {
             ))}
         style={{ width: 200 }}
         onSelect={this.onSelect}
+        value={this.state.input}
         onSearch={this.handleSearch}
         placeholder="input here"
       />
-      <button onClick={() => addWishListItem(this.state.id)}>ADD ITEM TO WISHLIST</button>
+      {
+        this.props.vendor ?
+        <button onClick={() =>  { addProduct(this.state.id); this.setState({input : ''})}}> {this.props.button_name}</button> :
+        <button onClick={() => {addWishListItem(this.state.id); this.setState({input : ''})}}>{this.props.button_name}</button>
+      }
     </div>
     );
 }

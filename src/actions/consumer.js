@@ -16,7 +16,6 @@ export const FETCH_USER_FAILURE = 'FETCH_USER_FAILURE'
 
 export const USER_LOGOUT = 'USER_LOGOUT'
 
-<<<<<<< HEAD
 export const FETCH_WISHLIST_LOADING = 'FETCH_WISHLIST_LOADING'
 export const FETCH_WISHLIST = 'FETCH_WISHLIST'
 export const FETCH_WISHLIST_SUCCESS = 'FETCH_WISHLIST_SUCCESS'
@@ -32,8 +31,12 @@ export const CREATE_WISHLIST_ITEM = 'CREATE_WISHLIST_ITEM'
 export const CREATE_WISHLIST_ITEM_SUCCESS = 'CREATE_WISHLIST_ITEM_SUCCESS'
 export const CREATE_WISHLIST_ITEM_FAILURE = 'CREATE_WISHLIST_ITEM_FAILURE'
 
-=======
->>>>>>> 625a40e145dd5a2c86256f0f97a0f1fc5a6ab2ec
+export const DELETE_WISHLIST_ITEM_LOADING = 'DELETE_WISHLIST_ITEM_LOADING'
+export const DELETE_WISHLIST_ITEM = 'DELETE_WISHLIST_ITEM'
+export const DELETE_WISHLIST_ITEM_SUCCESS = 'DELETE_WISHLIST_ITEM_SUCCESS'
+export const DELETE_WISHLIST_ITEM_FAILURE = 'DELETE_WISHLIST_ITEM_FAILURE'
+
+
 export function registerNewUserLoading(){
   return {
     type: REGISTER_NEW_USER_LOADING
@@ -76,7 +79,7 @@ export function userLogin(user){
 export function userLoginSuccess(response){
   return {
     type: USER_LOGIN_SUCCESS,
-    user: response.payload.data.consumer
+    user: response.payload.data.user
 
   }
 }
@@ -106,7 +109,6 @@ export function fetchUserSuccess(response){
     user: response.payload.data
   }
 }
-<<<<<<< HEAD
 
 export function fetchWishListLoading(){
   return {
@@ -189,5 +191,29 @@ export function createWishlistItemFailure(error){
     error
   }
 }
-=======
->>>>>>> 625a40e145dd5a2c86256f0f97a0f1fc5a6ab2ec
+export function deleteWishlistItemLoading(){
+  return {
+    type: DELETE_WISHLIST_ITEM_LOADING
+  }
+}
+
+export function deleteWishlistItem(id){
+  return {
+    type: DELETE_WISHLIST_ITEM,
+    payload: Axios.delete('http://localhost:3000/consumer/deleteproduct' , {params: {"id": id}})
+  }
+}
+
+export function deleteWishlistItemSuccess(response){
+  return {
+    type: DELETE_WISHLIST_ITEM_SUCCESS,
+    id: response.payload.data.id
+  }
+}
+
+export function deleteWishlistItemFailure(error){
+  return {
+    type: DELETE_WISHLIST_ITEM_FAILURE,
+    error
+  }
+}

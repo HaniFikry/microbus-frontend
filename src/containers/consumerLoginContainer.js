@@ -1,6 +1,5 @@
 import Login from '../components/login'
 import {connect} from 'react-redux';
-
 import {userLoginLoading, userLogin, userLoginSuccess, userLoginFailure} from '../actions/consumer'
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import history from '../history'
@@ -22,14 +21,8 @@ const mapDispatchToProps = function(dispatch) {
         const token = response.payload.data.auth_token;
         localStorage.setItem('jwtToken', token);
         setAuthorizationToken(token);
-<<<<<<< HEAD
         dispatch(userLoginSuccess(response));
-        history.push('/profile');
-=======
-        console.log(response.payload.data)
-        dispatch(userLoginSuccess(response));
-        history.push('/');
->>>>>>> 625a40e145dd5a2c86256f0f97a0f1fc5a6ab2ec
+        history.push('/consumer/profile');
       }else {
         dispatch(userLoginFailure(response.payload.error))
       }

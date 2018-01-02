@@ -1,6 +1,7 @@
 import NewVendor from '../components/newvendor'
 import {connect} from 'react-redux';
 import {registerNewVendrLoading, registerNewVendor, registerNewVendorSuccess, registerNewVendorFailure} from '../actions/vendor'
+import history from '../history'
 
 const mapStateToProps = function(state) {
   return {
@@ -14,6 +15,7 @@ const mapDispatchToProps = function(dispatch) {
       dispatch(registerNewVendrLoading());
       dispatch(registerNewVendor(newVendor)).then(function(response){
         dispatch(registerNewVendorSuccess(response));
+        history.push('/');
       }).catch(function(error){
         dispatch(registerNewVendorFailure(error))
       })
