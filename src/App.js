@@ -12,6 +12,7 @@ import search from './components/search'
 import consumer_profile from './containers/consumerProfileContainer'
 import vendor_profile from './containers/vendorProfileContainer'
 import offerForm from './containers/offerFormContainer'
+import offersList from './containers/offersListContainer'
 
 
 class App extends Component {
@@ -23,12 +24,13 @@ class App extends Component {
 
 
       <Route path="/new_consumer" component={New} />
-      <Route path="/new_vendor" component={New} />
+      <Route path="/new_vendor" component={NewVendor  } />
       <Route path="/consumer/login" component={Login} />
       <Route path="/vendor/login" component={VendorLogin} />
       <Route path="/consumer/profile" component={consumer_profile} />
       <Route path="/vendor/profile" component={vendor_profile} />
       <Route path="/products/:id" component={offerForm} />
+      <Route path="/offers" component={offersList} />
 
       </div>
     );

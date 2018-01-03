@@ -14,7 +14,7 @@ export default class Header extends Component {
     if (user.user_type == 'consumer') {
       return (
         <div>
-          <p> signed in as {user.user_email} </p>
+          <p> signed in as {user.user_email}  Current balance : {user.user_balance} MakMak</p>
           <a href="#" onClick={() => logout()}>Sign out</a>
 
         </div>

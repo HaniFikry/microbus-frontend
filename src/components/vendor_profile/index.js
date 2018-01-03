@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Search from '../../containers/searchContainer'
 import './style.css'
 import {Link} from 'react-router-dom'
+import VendorOffers from '../../containers/vendorOffersContainer'
 
 
 export default class VendorProfile extends Component {
@@ -23,6 +24,7 @@ render(){
     )
     }
       </ul>
+      <VendorOffers />
     </div>
    )
 }
