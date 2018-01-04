@@ -13,6 +13,7 @@ import consumer_profile from './containers/consumerProfileContainer'
 import vendor_profile from './containers/vendorProfileContainer'
 import offerForm from './containers/offerFormContainer'
 import offersList from './containers/offersListContainer'
+import MakmakStore from './components/store'
 
 
 class App extends Component {
@@ -31,6 +32,7 @@ class App extends Component {
       <Route path="/vendor/profile" component={vendor_profile} />
       <Route path="/products/:id" component={offerForm} />
       <Route path="/offers" component={offersList} />
+      <Route path="/store" component={MakmakStore} />
 
       </div>
     );

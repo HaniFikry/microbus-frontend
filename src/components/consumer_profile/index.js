@@ -13,7 +13,8 @@ render(){
   const {wishlists, user, deleteItem} = this.props;
   return(
     <div>
-      <Link to="/offers" > Check all offers </Link>
+      <p><Link to="/offers" > Check all offers </Link></p>
+      <p><Link to="/store" > BUY MAKMAKS NOW </Link></p>
       <h2> {user.user_name} </h2>
       <h1> WISH LIST </h1>
       <Search button_name={'Add item to wishlist'} vendor={false}/>
