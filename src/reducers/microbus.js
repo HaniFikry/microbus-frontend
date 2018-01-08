@@ -1,6 +1,7 @@
 
 import {REGISTER_NEW_USER_LOADING, REGISTER_NEW_USER_SUCCESS, REGISTER_NEW_USER_FAILURE, USER_LOGIN_LOADING, USER_LOGIN_SUCCESS, USER_LOGIN_FAILURE, USER_LOGOUT, FETCH_USER_SUCCESS, FETCH_WISHLIST_LOADING, FETCH_WISHLIST_SUCCESS, FETCH_WISHLIST_FAILURE, ADD_ITEM_TO_WISHLIST_LOADING, ADD_ITEM_TO_WISHLIST_SUCCESS, ADD_ITEM_TO_WISHLIST_FAILURE, CREATE_WISHLIST_ITEM_LOADING, CREATE_WISHLIST_ITEM_SUCCESS, CREATE_WISHLIST_ITEM_FAILURE, DELETE_WISHLIST_ITEM_LOADING, DELETE_WISHLIST_ITEM_SUCCESS, DELETE_WISHLIST_ITEM_FAILURE} from '../actions/consumer'
 import {CHARGE_MAKMAKS_LOADING, CHARGE_MAKMAKS_SUCCESS, CHARGE_MAKMAKS_FAILURE} from '../actions/makmaks'
+import {BUY_OFFER_LOADING, BUY_OFFER_SUCCESS, BUY_OFFER_FAILURE} from '../actions/buy_offer'
 
 
 const INITIAL_STATE = {
@@ -159,6 +160,24 @@ export default function(currentState = INITIAL_STATE, action) {
         ...currentState,
         error: action.error,
         loading: false
+      }
+      case BUY_OFFER_LOADING:
+        return {
+          ...currentState,
+          loading:true
+        }
+      case BUY_OFFER_SUCCESS:
+        return {
+          ...currentState,
+        user: {
+          ...currentState.user,
+        user_balance: action.balance
+        }
+        }
+      case BUY_OFFER_FAILURE:
+      return {
+        ...currentState,
+        error: action.error
       }
     default:
       return currentState

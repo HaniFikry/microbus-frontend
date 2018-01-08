@@ -9,7 +9,7 @@ export default class OfferForm extends Component {
       description: '',
       price: '',
       target_count: '',
-      duration: '',
+      deadline: '',
       vendor_product_id: '',
       thumbnail: ''
     }
@@ -25,6 +25,7 @@ export default class OfferForm extends Component {
   }
   changeFile(event) {
   this.setState({thumbnail: event.target.files[0]})
+  console.log(this.state)
 }
 
     handleSubmit = (event) => {
@@ -35,7 +36,7 @@ export default class OfferForm extends Component {
       var description = this.state.description;
       var price = this.state.price;
       var target_count = this.state.target_count;
-      var duration = this.state.duration;
+      var deadline = this.state.deadline;
       var thumbnail = this.state.thumbnail;
       var vendor_product_id = this.state.vendor_product_id;
 
@@ -45,7 +46,7 @@ export default class OfferForm extends Component {
       formData.append("offer[description]", description);
       formData.append("offer[price]", price);
       formData.append("offer[target_count]", target_count);
-      formData.append("offer[duration]", duration);
+      formData.append("offer[deadline]", deadline);
       formData.append("offer[thumbnail]", thumbnail);
       formData.append("offer[vendor_product_id]", vendor_product_id);
 
@@ -89,7 +90,7 @@ export default class OfferForm extends Component {
              <div>
              <label>
                <p> Valid until </p>
-               <input type="date" name='duration' onChange={this.handleChange.bind(this)}/>
+               <input type="datetime-local" name='deadline' onChange={this.handleChange.bind(this)}/>
              </label>
            </div>
              <div>

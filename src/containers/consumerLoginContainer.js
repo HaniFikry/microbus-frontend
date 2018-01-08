@@ -7,8 +7,7 @@ import history from '../history'
 
 const mapStateToProps = function(state) {
   return {
-    message:  state.microbus.message,
-    user: state.microbus.user
+    error:  state.microbus.error,
   }
 }
 
@@ -24,7 +23,7 @@ const mapDispatchToProps = function(dispatch) {
         dispatch(userLoginSuccess(response));
         history.push('/consumer/profile');
       }else {
-        dispatch(userLoginFailure(response.payload.error))
+        dispatch(userLoginFailure(response.payload.response.data.error))
       }
     })
   }

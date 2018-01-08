@@ -15,6 +15,11 @@ export const FETCH_ALL_OFFERS = 'FETCH_ALL_OFFERS'
 export const FETCH_ALL_OFFERS_SUCCESS = 'FETCH_ALL_OFFERS_SUCCESS'
 export const FETCH_ALL_OFFERS_FAILURE = 'FETCH_ALL_OFFERS_FAILURE'
 
+export const FETCH_OFFER_DETAILS_LOADING = 'FETCH_OFFER_DETAILS_LOADING'
+export const FETCH_OFFER_DETAILS = 'FETCH_OFFER_DETAILS'
+export const FETCH_OFFER_DETAILS_SUCCESS = 'FETCH_OFFER_DETAILS_SUCCESS'
+export const FETCH_OFFER_DETAILS_FAILURE = 'FETCH_OFFER_DETAILS_FAILURE'
+
 export function createOfferLoading(){
   return {
     type: CREATE_OFFER_LOADING
@@ -94,6 +99,34 @@ export function fetchAllOffersSuccess(response){
 export function fetchAllOffersFailure(error){
   return {
     type: FETCH_ALL_OFFERS_FAILURE,
+    error
+  }
+}
+
+export function fetchOfferDetailsLoading(){
+  return {
+    type: FETCH_OFFER_DETAILS_LOADING
+  }
+}
+
+export function fetchOfferDetails(id){
+  return {
+    type: FETCH_OFFER_DETAILS,
+    payload: Axios.get(`http://localhost:3000/offers/${id}.json`)
+
+  }
+}
+
+export function fetchOfferDetailsSuccess(response){
+  return {
+    type: FETCH_OFFER_DETAILS_SUCCESS,
+    offer: response.payload.data
+  }
+}
+
+export function fetchOfferDetailsFailure(error){
+  return {
+    type: FETCH_OFFER_DETAILS_FAILURE,
     error
   }
 }
