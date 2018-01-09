@@ -8,6 +8,12 @@ export default class OfferDetails extends Component {
   componentWillMount(){
     this.props.fetchSingleOffer(this.props.match.params.id)
   }
+  componentWillReceiveProps(nextProps){
+  const {fetchSingleOffer, match: {params}} = nextProps;
+    if(params.id !== this.props.match.params.id){
+      fetchSingleOffer(params.id)
+    }
+}
   render(){
     const {offerDetails, user, buyItem} = this.props;
     return (
