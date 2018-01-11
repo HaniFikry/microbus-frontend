@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 import 'antd/dist/antd.css';
 import {Alert} from 'antd'
 
-
-
-export default class Login extends Component {
+export default class VendorLogin extends Component {
   constructor(){
     super();
     this.state= {
@@ -21,10 +19,8 @@ export default class Login extends Component {
   }
 
 
-
-
   render() {
-    const {loginConsumer, error} = this.props;
+    const {loginVendor, error} = this.props;
     return(
       <div>
         {
@@ -35,8 +31,7 @@ export default class Login extends Component {
            closable
         /> : null
        }
-
-        <form onSubmit={(event) => {event.preventDefault(); loginConsumer(this.state)}}>
+        <form onSubmit={(event) => {event.preventDefault(); loginVendor(this.state)}}>
       <div>
         <label>
           <p> Email: </p>

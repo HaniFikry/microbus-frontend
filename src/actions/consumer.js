@@ -31,6 +31,15 @@ export const CREATE_WISHLIST_ITEM = 'CREATE_WISHLIST_ITEM'
 export const CREATE_WISHLIST_ITEM_SUCCESS = 'CREATE_WISHLIST_ITEM_SUCCESS'
 export const CREATE_WISHLIST_ITEM_FAILURE = 'CREATE_WISHLIST_ITEM_FAILURE'
 
+<<<<<<< HEAD
+=======
+export const DELETE_WISHLIST_ITEM_LOADING = 'DELETE_WISHLIST_ITEM_LOADING'
+export const DELETE_WISHLIST_ITEM = 'DELETE_WISHLIST_ITEM'
+export const DELETE_WISHLIST_ITEM_SUCCESS = 'DELETE_WISHLIST_ITEM_SUCCESS'
+export const DELETE_WISHLIST_ITEM_FAILURE = 'DELETE_WISHLIST_ITEM_FAILURE'
+
+
+>>>>>>> development
 export function registerNewUserLoading(){
   return {
     type: REGISTER_NEW_USER_LOADING
@@ -73,7 +82,7 @@ export function userLogin(user){
 export function userLoginSuccess(response){
   return {
     type: USER_LOGIN_SUCCESS,
-    user: response.payload.data.consumer
+    user: response.payload.data.user
 
   }
 }
@@ -185,3 +194,32 @@ export function createWishlistItemFailure(error){
     error
   }
 }
+<<<<<<< HEAD
+=======
+export function deleteWishlistItemLoading(){
+  return {
+    type: DELETE_WISHLIST_ITEM_LOADING
+  }
+}
+
+export function deleteWishlistItem(id){
+  return {
+    type: DELETE_WISHLIST_ITEM,
+    payload: Axios.delete('http://localhost:3000/consumer/deleteproduct' , {params: {"id": id}})
+  }
+}
+
+export function deleteWishlistItemSuccess(response){
+  return {
+    type: DELETE_WISHLIST_ITEM_SUCCESS,
+    id: response.payload.data.id
+  }
+}
+
+export function deleteWishlistItemFailure(error){
+  return {
+    type: DELETE_WISHLIST_ITEM_FAILURE,
+    error
+  }
+}
+>>>>>>> development
