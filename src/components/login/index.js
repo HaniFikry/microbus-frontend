@@ -1,4 +1,9 @@
 import React, {Component} from 'react';
+import 'antd/dist/antd.css';
+import {Alert} from 'antd';
+import history from '../../history'
+
+
 
 export default class Login extends Component {
   constructor(){
@@ -6,6 +11,11 @@ export default class Login extends Component {
     this.state= {
       email: '',
       password: ''
+    }
+  }
+  componentWillMount(){
+    if (localStorage.jwtToken){
+      history.push('/')
     }
   }
 
@@ -17,10 +27,21 @@ export default class Login extends Component {
   }
 
 
+
+
   render() {
-    const {loginConsumer} = this.props;
+    const {loginConsumer, error} = this.props;
     return(
       <div>
+        {
+        error ?
+        <Alert
+           description={error}
+           type="error"
+           closable
+        /> : null
+       }
+
         <form onSubmit={(event) => {event.preventDefault(); loginConsumer(this.state)}}>
       <div>
         <label>

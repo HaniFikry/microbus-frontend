@@ -27,7 +27,6 @@ const mapDispatchToProps = function(dispatch) {
       localStorage.removeItem('jwtToken');
       setAuthorizationToken(false);
       history.push('/');
-
     },
     getUser: function(){
       dispatch(fetchUser()).then(function(response){

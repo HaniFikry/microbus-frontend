@@ -39,6 +39,9 @@ export const FETCH_PRODUCT = 'FETCH_PRODUCT'
 export const FETCH_PRODUCT_SUCCESS = 'FETCH_PRODUCT_SUCCESS'
 export const FETCH_PRODUCT_FAILURE = 'FETCH_PRODUCT_FAILURE'
 
+export const UPDATE_VENDOR_BALANCE = 'UPDATE_VENDOR_BALANCE'
+export const UPDATE_VENDOR_BALANCE_SUCCESS = 'UPDATE_VENDOR_BALANCE_SUCCESS'
+
 export const VENDOR_LOGOUT = 'VENDOR_LOGOUT'
 
 export function registerNewVendrLoading(){
@@ -247,5 +250,19 @@ export function fetchProductFailure(error){
   return {
     type: FETCH_PRODUCT_FAILURE,
     error
+  }
+}
+
+export function updateVendorBalance(){
+  return {
+  type: UPDATE_VENDOR_BALANCE,
+  payload: Axios.get('http://localhost:3000/current_user')
+  }
+}
+
+export function updateVendorBalanceSuccess(response){
+  return {
+  type: UPDATE_VENDOR_BALANCE_SUCCESS,
+  amount: response.payload.data.user_balance
   }
 }

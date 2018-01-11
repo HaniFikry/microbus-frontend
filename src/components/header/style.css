@@ -1,0 +1,19 @@
+.navbar-nav li a a{
+  padding: 20px;
+}
+
+.navigation-bar a {
+  color: white ;
+}
+
+.navigation-bar .navbar-brand {
+  color: white;
+}
+.navbar-inverse .navbar-nav>li>a {
+  color: white;
+
+}
+
+.navbar-inverse {
+  margin-bottom: 50px;
+}
