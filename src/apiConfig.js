@@ -1,4 +1,5 @@
-export const rootApi = `http://localhost:3000`;
+const rootApi = process.env.NODE_ENV == 'production' ? `http://microbus-api.herokuapp.com`:`http://localhost:3000`
+export default rootApi
 
 // Users
 export const consumerRegistrationApi = `${rootApi}/consumer_registrations`;
