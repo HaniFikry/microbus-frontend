@@ -1,6 +1,6 @@
-import Login from '../components/login'
+import VendorLogin from '../components/vendorlogin'
 import {connect} from 'react-redux';
-import {userLoginLoading, userLogin, userLoginSuccess, userLoginFailure} from '../actions/consumer'
+import {vendorLoginLoading, vendorLogin, vendorLoginSuccess, vendorLoginFailure} from '../actions/vendor'
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import history from '../history'
 
@@ -14,21 +14,22 @@ const mapStateToProps = function(state) {
 
 const mapDispatchToProps = function(dispatch) {
   return {
-    loginConsumer: function(consumer){
-      dispatch(userLoginLoading());
-      dispatch(userLogin(consumer)).then(function(response){
+    loginVendor: function(vendor){
+      dispatch(vendorLoginLoading());
+      dispatch(vendorLogin(vendor)).then(function(response){
         if(response.payload.status < 400){
         const token = response.payload.data.auth_token;
+        console.log(token)
         localStorage.setItem('jwtToken', token);
         setAuthorizationToken(token);
-        dispatch(userLoginSuccess(response));
-        history.push('/consumer/profile');
+        dispatch(vendorLoginSuccess(response));
+        history.push('/vendor/profile');
       }else {
-        dispatch(userLoginFailure(response.payload.error))
+        dispatch(vendorLoginFailure(response.payload.error))
       }
     })
   }
 }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(VendorLogin);

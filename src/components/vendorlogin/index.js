@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export default class Login extends Component {
+export default class VendorLogin extends Component {
   constructor(){
     super();
     this.state= {
@@ -18,10 +18,10 @@ export default class Login extends Component {
 
 
   render() {
-    const {loginConsumer} = this.props;
+    const {loginVendor} = this.props;
     return(
       <div>
-        <form onSubmit={(event) => {event.preventDefault(); loginConsumer(this.state)}}>
+        <form onSubmit={(event) => {event.preventDefault(); loginVendor(this.state)}}>
       <div>
         <label>
           <p> Email: </p>
