@@ -20,6 +20,12 @@ export const FETCH_OFFER_DETAILS = 'FETCH_OFFER_DETAILS'
 export const FETCH_OFFER_DETAILS_SUCCESS = 'FETCH_OFFER_DETAILS_SUCCESS'
 export const FETCH_OFFER_DETAILS_FAILURE = 'FETCH_OFFER_DETAILS_FAILURE'
 
+export const FETCH_TOP_OFFERS_LOADING = 'FETCH_TOP_OFFERS_LOADING'
+export const FETCH_TOP_OFFERS = 'FETCH_TOP_OFFERS'
+export const FETCH_TOP_OFFERS_SUCCESS = 'FETCH_TOP_OFFERS_SUCCESS'
+export const FETCH_TOP_OFFERS_FAILURE = 'FETCH_TOP_OFFERS_FAILURE'
+
+
 export function createOfferLoading(){
   return {
     type: CREATE_OFFER_LOADING
@@ -127,6 +133,34 @@ export function fetchOfferDetailsSuccess(response){
 export function fetchOfferDetailsFailure(error){
   return {
     type: FETCH_OFFER_DETAILS_FAILURE,
+    error
+  }
+}
+
+export function fetchTopOffersLoading(){
+  return {
+    type: FETCH_TOP_OFFERS_LOADING
+  }
+}
+
+export function fetchTopOffers(){
+  return {
+    type: FETCH_TOP_OFFERS,
+    payload: Axios.get(`http://localhost:3000/top_offers.json`)
+  }
+}
+
+export function fetchTopOffersSuccess(response){
+  return {
+    type: FETCH_TOP_OFFERS_SUCCESS,
+    offers: response.payload.data
+
+  }
+}
+
+export function fetchTopOffersFailure(error){
+  return {
+    type: FETCH_TOP_OFFERS_FAILURE,
     error
   }
 }

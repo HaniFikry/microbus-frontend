@@ -16,14 +16,20 @@ export default class OffersList extends Component {
           <Grid>
           <Row>
         {
-          offers.map((offer) =>
-            <Col xs={6} md={4}>
-              <Thumbnail src={offer.thumbnail} alt="242x200">
-                <h3>{offer.name}</h3>
-                <Button bsStyle="primary"><Link to={`/offers/${offer.id}`} >Buy now</Link></Button>
-                  <p> {offer.price} </p>
-              </Thumbnail>
-            </Col>
+          offers.map((offer) => 
+          { 
+            if (offer.status === 'progress') {
+              return (
+                <Col xs={6} md={4}>
+                  <Thumbnail src={offer.thumbnail} alt="242x200">
+                    <h3>{offer.name}</h3>
+                    <Button bsStyle="primary"><Link to={`/offers/${offer.id}`} >Buy now</Link></Button>
+                      <p> {offer.price} </p>
+                  </Thumbnail>
+                </Col>
+              )
+            }
+          }
 
         )
         }

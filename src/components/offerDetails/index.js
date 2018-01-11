@@ -18,20 +18,21 @@ export default class OfferDetails extends Component {
         <img src={offerDetails.thumbnail} />
         <p> {offerDetails.description} </p>
         <h3> {offerDetails.price} MakMak</h3>
-         <ProgressBar active now={offerDetails.progress} label={`${offerDetails.progress}%`}/>
+         <ProgressBar active now={offerDetails.progress} label={`${offerDetails.progress} %`}/>
          {
           (offerDetails.price <= user.user_balance) ?
-        <Button bsStyle="primary" bsSize="large" onClick={() => buyItem(offerDetails.id)}>
-          Buy now
+        <Button bsStyle="primary" bsSize="large" onClick={() => buyItem(offerDetails.id)} >        Buy now
 			  </Button>
-        :
-        <div>
-        <Button bsStyle="primary" bsSize="large" disabled >
-          Buy now
-			  </Button>
-        <p>You need {offerDetails.price - user.user_balance} makmak to buy this offer .. The good news is You can buy makmaks from our <Link to='/store'>Store </Link> </p>
-       </div>
-        }
+        :  
+          <div>
+            <Button bsStyle="primary" bsSize="large" disabled >
+              Buy now
+    			  </Button>
+            <p>You need {offerDetails.price - user.user_balance} makmak to buy this offer .. The good news is You can buy makmaks from our <Link to='/store'>Store </Link> </p>
+           </div>
+       
+       }
+        
       </div>
     )
   }
