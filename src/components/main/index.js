@@ -16,7 +16,7 @@ export default class Main extends Component {
 	  const {topOffers} = this.props;
 
 	  return(
-	  	<div>
+	  	<div className="main">
 		  		<h1>Microbus.. The Power of US!</h1>
 		  	<div className="topOffers">
 			  	<h2>Most Purchased Offers</h2>
