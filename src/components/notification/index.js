@@ -3,7 +3,7 @@ import { Menu, Dropdown, Icon, Badge } from 'antd';
 import './style.css'
 import {Link} from 'react-router-dom'
 import Cable from 'actioncable';
-import {webSocketApi} from '../apiConfig'
+import {webSocketApi} from '../../apiConfig'
 
 
 
