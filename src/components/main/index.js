@@ -17,7 +17,7 @@ export default class Main extends Component {
 
 	  return(
 	  	<div>
-		  		<h1>Microbus.. The Power of US!</h1>		  
+		  		<h1>Microbus.. The Power of US!</h1>
 		  	<div className="topOffers">
 			  	<h2>Most Purchased Offers</h2>
 		  					<Carousel>
@@ -51,8 +51,8 @@ export default class Main extends Component {
 }
 
         //  {
-        //   topOffers.map((offer) => 
-        //   	{ 
+        //   topOffers.map((offer) =>
+        //   	{
 	       //      if (offer.status === 'completed') {
 	       //        return (
 		      //         <div>
