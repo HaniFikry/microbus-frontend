@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import 'antd/dist/antd.css';
 import Axios from 'axios'
 const Option = AutoComplete.Option;
+import {searchApi} from '../apiConfig'
 
 
 
@@ -20,7 +21,7 @@ export default class Complete extends Component {
 
   handleSearch = (value) => {
     this.setState({input: value});
-    Axios.get(`http://localhost:3000/search?query=${value}`).then((response) => {
+    Axios.get(searchApi(value)).then((response) => {
         this.setState({dataSource: response.data})
     })
     .catch(function (error) {
