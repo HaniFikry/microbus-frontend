@@ -1,4 +1,6 @@
-const rootApi = process.env.NODE_ENV == 'production' ? `http://microbus-api.herokuapp.com`:`http://localhost:3000`
+const rootApi = process.env.NODE_ENV === 'production'
+  ? `https://microbus-api.herokuapp.com`
+  :`http://localhost:3000`
 export default rootApi
 
 // Users
