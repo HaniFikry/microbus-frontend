@@ -1,13 +1,10 @@
-const rootApi = process.env.NODE_ENV === 'production'
+export const rootApi = process.env.NODE_ENV === 'production'
   ? `https://microbus-api.herokuapp.com`
   :`http://localhost:3000`
-export const rootApi
 
-const webSocketApi = process.env.NODE_ENV === 'production'
+export const webSocketApi = process.env.NODE_ENV === 'production'
   ? `ws://microbus-api.herokuapp.com/cable?token=${localStorage.jwtToken}`
    : `ws://localhost:3000/cable?token=${localStorage.jwtToken}`
-export const webSocketApi
-console.log
 
 // Users
 export const consumerRegistrationApi = `${rootApi}/consumer_registrations`;
