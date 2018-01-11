@@ -18,7 +18,7 @@ export default class OfferDetails extends Component {
         <img src={offerDetails.thumbnail} />
         <p> {offerDetails.description} </p>
         <h3> {offerDetails.price} MakMak</h3>
-         <ProgressBar active now={offerDetails.progress} label={`${offerDetails.progress} %`}/>
+         <ProgressBar active now={offerDetails.progress} label={`${offerDetails.buying_consumers} of ${offerDetails.target_count} users bought this`}/>
          {
           (offerDetails.price <= user.user_balance) ?
         <Button bsStyle="primary" bsSize="large" onClick={() => buyItem(offerDetails.id)} >        Buy now

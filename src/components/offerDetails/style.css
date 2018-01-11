@@ -9,3 +9,7 @@
 .offerDetails button {
   text-transform: uppercase;
 }
+
+.progressbar {
+	text-align: center;
+}
