@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import 'antd/dist/antd.css';
 import Axios from 'axios'
 const Option = AutoComplete.Option;
-import {searchApi} from '../apiConfig'
+import {searchApi} from '../../apiConfig'
 
 
 
