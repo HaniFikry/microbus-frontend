@@ -29,7 +29,7 @@ export default class OfferDetails extends Component {
 
         <h4><Countdown date={offerDetails.deadline} /></h4>
 
-         <ProgressBar active now={offerDetails.progress} label={`${offerDetails.progress}%`}/>
+         <ProgressBar active now={offerDetails.progress} label={`${offerDetails.buying_consumers} of ${offerDetails.target_count} users bought this offer`}/>
          {
           (offerDetails.price <= user.user_balance) ?
         <Button bsStyle="primary" bsSize="large" onClick={() => buyItem(offerDetails.id)} >        Buy now
