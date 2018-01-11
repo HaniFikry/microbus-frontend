@@ -3,7 +3,7 @@ export const rootApi = process.env.NODE_ENV === 'production'
   :`http://localhost:3000`
 
 export const webSocketApi = process.env.NODE_ENV === 'production'
-  ? `ws://microbus-api.herokuapp.com/cable?token=${localStorage.jwtToken}`
+  ? `wss://microbus-api.herokuapp.com/cable?token=${localStorage.jwtToken}`
    : `ws://localhost:3000/cable?token=${localStorage.jwtToken}`
 
 // Users
