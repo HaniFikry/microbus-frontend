@@ -1,0 +1,39 @@
+.header{
+	width: 100%;
+	height: 500px;
+
+	margin-top: -5%;
+
+}
+
+.main h1{
+	color: #fff;
+	font-size: 3em;
+	font-weight: bold;
+	font-family: sans-serif;
+	background-image: url("header-background.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 220px 0;
+}
+.thumbnail img {
+ 	height: 180px;
+}
+.topOffers .thumbnail{
+	border:0;
+}
+
+.carousel-indicators{
+	margin-bottom: 10px;
+
+}
+.carousel-indicators li{
+	border-color: #ccc;
+}
+.carousel-indicators .active{
+	background-color: #ccc;
+}
+.btn-primary a {
+	color: #fff;
+}
