@@ -8,8 +8,6 @@ import history from '../history'
 const mapStateToProps = function(state) {
   return {
     error:  state.microbus.error,
-    user: state.microbus.user,
-    vendor: state.vendor.user
   }
 }
 
@@ -23,11 +21,7 @@ const mapDispatchToProps = function(dispatch) {
         localStorage.setItem('jwtToken', token);
         setAuthorizationToken(token);
         dispatch(userLoginSuccess(response));
-<<<<<<< HEAD
-        history.push('/profile');
-=======
         history.push('/consumer/profile');
->>>>>>> development
       }else {
         dispatch(userLoginFailure(response.payload.response.data.error))
       }
