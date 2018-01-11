@@ -31,12 +31,15 @@ export const CREATE_WISHLIST_ITEM = 'CREATE_WISHLIST_ITEM'
 export const CREATE_WISHLIST_ITEM_SUCCESS = 'CREATE_WISHLIST_ITEM_SUCCESS'
 export const CREATE_WISHLIST_ITEM_FAILURE = 'CREATE_WISHLIST_ITEM_FAILURE'
 
+<<<<<<< HEAD
+=======
 export const DELETE_WISHLIST_ITEM_LOADING = 'DELETE_WISHLIST_ITEM_LOADING'
 export const DELETE_WISHLIST_ITEM = 'DELETE_WISHLIST_ITEM'
 export const DELETE_WISHLIST_ITEM_SUCCESS = 'DELETE_WISHLIST_ITEM_SUCCESS'
 export const DELETE_WISHLIST_ITEM_FAILURE = 'DELETE_WISHLIST_ITEM_FAILURE'
 
 
+>>>>>>> development
 export function registerNewUserLoading(){
   return {
     type: REGISTER_NEW_USER_LOADING
@@ -191,6 +194,8 @@ export function createWishlistItemFailure(error){
     error
   }
 }
+<<<<<<< HEAD
+=======
 export function deleteWishlistItemLoading(){
   return {
     type: DELETE_WISHLIST_ITEM_LOADING
@@ -217,3 +222,4 @@ export function deleteWishlistItemFailure(error){
     error
   }
 }
+>>>>>>> development

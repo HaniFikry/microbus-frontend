@@ -131,7 +131,7 @@ export default class HeaderComponent extends Component {
           <p> signed in as {user.user_email}  Current balance : {user.user_balance} MakMak</p>
           <a href="#" onClick={() => logout()}>Sign out</a>
 
-        </div>
+s        </div>
       )
     }else if (vendor.user_type == 'vendor') {
       return (
