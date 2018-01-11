@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './style.css'
 import {Button, ProgressBar} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import Countdown from 'react-countdown-now';
+
 
 
 export default class OfferDetails extends Component {
@@ -15,7 +17,7 @@ export default class OfferDetails extends Component {
     }
 }
   render(){
-    const {offerDetails, user, buyItem} = this.props;
+    const {offerDetails, user, buyItem, saveLocation} = this.props;
     return (
       <div className='offerDetails'>
         <p> Sold by : {offerDetails.seller} </p>
@@ -24,6 +26,9 @@ export default class OfferDetails extends Component {
         <img src={offerDetails.thumbnail} />
         <p> {offerDetails.description} </p>
         <h3> {offerDetails.price} MakMak</h3>
+
+        <h4><Countdown date={offerDetails.deadline} /></h4>
+
          <ProgressBar active now={offerDetails.progress} label={`${offerDetails.progress}%`}/>
          {
           (offerDetails.price <= user.user_balance) ?
@@ -35,7 +40,7 @@ export default class OfferDetails extends Component {
         <Button bsStyle="primary" bsSize="large" disabled >
           Buy now
 			  </Button>
-        <p>You need {offerDetails.price - user.user_balance} makmak to buy this offer .. The good news is You can buy makmaks from our <Link to='/store'>Store </Link> </p>
+        <p>You need {offerDetails.price - user.user_balance} makmak to buy this offer .. The good news is You can buy makmaks from our <Link onClick={() =>saveLocation(this.props.location.pathname)}to='/store'>Store </Link> </p>
        </div>
         }
       </div>

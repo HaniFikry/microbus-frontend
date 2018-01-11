@@ -1,4 +1,6 @@
 import React , {Component} from 'react';
+import history from '../../history'
+
 
 export default class New extends Component {
   constructor(){
@@ -11,12 +13,18 @@ export default class New extends Component {
     }
   }
 
-handleChange(event) {
-  const field = event.target.name;
-  const newUser = this.state;
-  newUser[field] = event.target.value;
-  return this.setState({newUser: newUser});
-}
+  componentWillMount(){
+    if (localStorage.jwtToken){
+      history.push('/')
+    }
+  }
+
+  handleChange(event) {
+    const field = event.target.name;
+    const newUser = this.state;
+    newUser[field] = event.target.value;
+    return this.setState({newUser: newUser});
+  }
 
 
   render(){

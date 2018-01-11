@@ -11,4 +11,9 @@
 }
 .navbar-inverse .navbar-nav>li>a {
   color: white;
+
+}
+
+.navbar-inverse {
+  margin-bottom: 50px;
 }

@@ -36,6 +36,8 @@ export const DELETE_WISHLIST_ITEM = 'DELETE_WISHLIST_ITEM'
 export const DELETE_WISHLIST_ITEM_SUCCESS = 'DELETE_WISHLIST_ITEM_SUCCESS'
 export const DELETE_WISHLIST_ITEM_FAILURE = 'DELETE_WISHLIST_ITEM_FAILURE'
 
+export const SAVE_CURRENT_LOCATION = 'SAVE_CURRENT_LOCATION'
+
 
 export function registerNewUserLoading(){
   return {
@@ -215,5 +217,12 @@ export function deleteWishlistItemFailure(error){
   return {
     type: DELETE_WISHLIST_ITEM_FAILURE,
     error
+  }
+}
+
+export function saveCurrentLocation(url) {
+  return {
+  type: SAVE_CURRENT_LOCATION,
+  url: url
   }
 }

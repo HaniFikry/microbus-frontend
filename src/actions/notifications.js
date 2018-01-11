@@ -5,6 +5,11 @@ export const FETCH_USER_NOTIFICATIONS = 'FETCH_USER_NOTIFICATIONS'
 export const FETCH_USER_NOTIFICATIONS_SUCCESS = 'FETCH_USER_NOTIFICATIONS_SUCCESS'
 export const FETCH_USER_NOTIFICATIONS_FAILURE = 'FETCH_USER_NOTIFICATIONS_FAILURE'
 
+export const FETCH_ALL_USER_NOTIFICATIONS_LOADING = 'FETCH_ALL_USER_NOTIFICATIONS_LOADING'
+export const FETCH_ALL_USER_NOTIFICATIONS = 'FETCH_ALL_USER_NOTIFICATIONS'
+export const FETCH_ALL_USER_NOTIFICATIONS_SUCCESS = 'FETCH_ALL_USER_NOTIFICATIONS_SUCCESS'
+export const FETCH_ALL_USER_NOTIFICATIONS_FAILURE = 'FETCH_ALL_USER_NOTIFICATIONS_FAILURE'
+
 export const MARK_NOTIFICATION_READ_LOADING = 'MARK_NOTIFICATION_READ_LOADING'
 export const MARK_NOTIFICATION_READ = 'MARK_NOTIFICATION_READ'
 export const MARK_NOTIFICATION_READ_SUCCESS = 'MARK_NOTIFICATION_READ_SUCCESS'
@@ -22,7 +27,7 @@ export function fetchUserNotificationsLoading(){
 export function fetchUserNotifications(){
   return {
     type: FETCH_USER_NOTIFICATIONS,
-    payload: Axios.get(`http://localhost:3000/consumer/notifications`)
+    payload: Axios.get(`http://localhost:3000/consumer/latest_notifications`)
   }
 }
 
@@ -71,5 +76,32 @@ export function addNotification(data){
   return {
     type: ADD_NOTIFICATION,
     data: data
+  }
+}
+
+export function fetchAllUserNotificationsLoading(){
+  return {
+    type: FETCH_ALL_USER_NOTIFICATIONS_LOADING
+  }
+}
+
+export function fetchAllUserNotifications(){
+  return {
+    type: FETCH_ALL_USER_NOTIFICATIONS,
+    payload: Axios.get(`http://localhost:3000/consumer/notifications`)
+  }
+}
+
+export function fetchAllUserNotificationsSuccess(response){
+  return {
+    type: FETCH_ALL_USER_NOTIFICATIONS_SUCCESS,
+    notifications: response.payload.data
+  }
+}
+
+export function fetchAllUserNotificationsFailure(error){
+  return {
+    type: FETCH_ALL_USER_NOTIFICATIONS_FAILURE,
+    error
   }
 }

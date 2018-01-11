@@ -3,6 +3,7 @@ import offerDetails from '../components/offerDetails'
 import {fetchOfferDetails, fetchOfferDetailsLoading, fetchOfferDetailsSuccess, fetchOfferDetailsFailure} from '../actions/offer'
 import {buyOfferLoading, buyOffer, buyOfferSuccess, buyOfferFailure} from '../actions/buy_offer'
 import history from '../history'
+import {saveCurrentLocation} from '../actions/consumer'
 
 
 const mapStateToProps = function(state) {
@@ -31,6 +32,8 @@ const mapDispatchToProps = function(dispatch){
           history.push(`/offer/${id}/success`)
         }
       })
+    }, saveLocation : function(url){
+      dispatch(saveCurrentLocation(url))
     }
   }
 }

@@ -8,6 +8,8 @@ import history from '../history'
 const mapStateToProps = function(state) {
   return {
     error:  state.microbus.error,
+    user: state.microbus.user,
+    vendor: state.vendor.user
   }
 }
 
