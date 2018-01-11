@@ -11,8 +11,9 @@ export default class Checkout extends Component {
   fromEuroToCent = (amount) => amount * 100;
 
   successPayment = data => {
-    const { chargeBalance } = this.props
-    chargeBalance(data.data)
+    const { chargeBalance, url } = this.props
+    console.log(url)
+    chargeBalance(data.data, url)
   };
 
   errorPayment = data => {

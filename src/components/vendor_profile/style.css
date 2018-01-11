@@ -10,6 +10,7 @@
 
 .productlist {
   margin-top: 10px;
+
 }
 .productlist li {
   width: 330px;
@@ -24,4 +25,19 @@
   position: absolute;
   right: 30px;
   height: 21px;
+}
+
+.product_catalogue {
+  margin-top: 50px;
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+.product_catalogue h2 {
+  margin-left: -200px;
+}
+
+.tabs {
+  width: 500px;
+  margin: 0 auto;
 }

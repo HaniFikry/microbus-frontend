@@ -38,6 +38,8 @@ export const DELETE_WISHLIST_ITEM = 'DELETE_WISHLIST_ITEM'
 export const DELETE_WISHLIST_ITEM_SUCCESS = 'DELETE_WISHLIST_ITEM_SUCCESS'
 export const DELETE_WISHLIST_ITEM_FAILURE = 'DELETE_WISHLIST_ITEM_FAILURE'
 
+export const SAVE_CURRENT_LOCATION = 'SAVE_CURRENT_LOCATION'
+
 
 >>>>>>> development
 export function registerNewUserLoading(){
@@ -222,4 +224,14 @@ export function deleteWishlistItemFailure(error){
     error
   }
 }
+<<<<<<< HEAD
 >>>>>>> development
+=======
+
+export function saveCurrentLocation(url) {
+  return {
+  type: SAVE_CURRENT_LOCATION,
+  url: url
+  }
+}
+>>>>>>> 4adc61c0187494f8cbf515230b0d6a7ab2cc13ed

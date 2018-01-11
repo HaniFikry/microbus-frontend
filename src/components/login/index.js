@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import 'antd/dist/antd.css';
-import {Alert} from 'antd'
+import {Alert} from 'antd';
+import history from '../../history'
 
 
 
@@ -10,6 +11,11 @@ export default class Login extends Component {
     this.state= {
       email: '',
       password: ''
+    }
+  }
+  componentWillMount(){
+    if (localStorage.jwtToken){
+      history.push('/')
     }
   }
 

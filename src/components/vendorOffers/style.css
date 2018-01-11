@@ -1,0 +1,29 @@
+.offer_card {
+  background: #f4f5f7;
+  margin: 10px auto;
+  padding: 20px;
+  width: 800px;
+  height: 200px;
+  position: relative;
+}
+
+.offer_card img {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  height: 150px;
+  width: 150px;
+}
+
+.progress {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.offer_card h2 {
+  text-align: right;
+}
+
+#offers_header {
+    margin-left: -200px;
+}

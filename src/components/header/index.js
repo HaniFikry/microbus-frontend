@@ -3,6 +3,7 @@ import {Route, Link} from 'react-router-dom';
 import {Navbar, Nav, NavItem, Brand, Toggle, Collapse, Header} from 'react-bootstrap'
 import {Avatar} from 'antd'
 import './style.css'
+import Notifications from '../../containers/notificationsContainer'
 
 
 export default class HeaderComponent extends Component {
@@ -43,7 +44,7 @@ export default class HeaderComponent extends Component {
       					Current balance: {user.user_balance}
       				</NavItem>
       				<NavItem eventKey={3} >
-                <Link to='/consumer/notifications'><i class="fa fa-bell-o" aria-hidden="true"></i></Link>
+                <Notifications />
       				</NavItem>
       				<NavItem eventKey={2} href="#" onClick={() => logout()}>
       					Sign out
@@ -80,7 +81,7 @@ export default class HeaderComponent extends Component {
       					Current balance: {vendor.user_balance}
       				</NavItem>
       				<NavItem eventKey={1} >
-                <Link to='/vendor/notifications'><i class="fa fa-bell-o" aria-hidden="true"></i></Link>
+                <Notifications />
       				</NavItem>
       				<NavItem eventKey={2} href="#" onClick={() => vendorLogout()}>
       					Sign out

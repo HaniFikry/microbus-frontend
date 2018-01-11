@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import 'antd/dist/antd.css';
 import {Alert} from 'antd'
+import history from '../../history'
+
 
 export default class VendorLogin extends Component {
   constructor(){
@@ -18,6 +20,11 @@ export default class VendorLogin extends Component {
     return this.setState({login: login});
   }
 
+  componentWillMount(){
+    if (localStorage.jwtToken){
+      history.push('/')
+    }
+  }
 
   render() {
     const {loginVendor, error} = this.props;

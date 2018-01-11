@@ -1,0 +1,16 @@
+.all_notifications li{
+  text-align: left;
+}
+
+.all_notifications ul {
+  margin: 0 auto;
+  width: 600px;
+  text-align: center;
+  font-size: 15px;
+}
+.all_notifications h2 {
+  background: #d9e0d2;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 0;
+}
