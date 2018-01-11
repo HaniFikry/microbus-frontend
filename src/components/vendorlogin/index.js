@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import 'antd/dist/antd.css';
+import {Alert} from 'antd'
 
 export default class VendorLogin extends Component {
   constructor(){
@@ -18,9 +20,17 @@ export default class VendorLogin extends Component {
 
 
   render() {
-    const {loginVendor} = this.props;
+    const {loginVendor, error} = this.props;
     return(
       <div>
+        {
+        error ?
+        <Alert
+           description={error}
+           type="error"
+           closable
+        /> : null
+       }
         <form onSubmit={(event) => {event.preventDefault(); loginVendor(this.state)}}>
       <div>
         <label>

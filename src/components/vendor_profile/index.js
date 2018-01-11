@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Search from '../../containers/searchContainer'
 import './style.css'
 import {Link} from 'react-router-dom'
+import VendorOffers from '../../containers/vendorOffersContainer'
 
 
 export default class VendorProfile extends Component {
@@ -19,10 +20,11 @@ render(){
       <ul className='productlist'>
     {
       product_lists.map((product_list) =>
-      <li> {product_list.product_name}  <Link to={`/products/${product_list.id}`} > Make offer </Link> <i class="fa fa-trash-o" aria-hidden="true" onClick={() => deleteProduct(product_list.id) } ></i></li>
+      <li> {product_list.product_name} ({product_list.product_demand}) <Link to={`/products/${product_list.id}`} > Make offer </Link> <i class="fa fa-trash-o" aria-hidden="true" onClick={() => deleteProduct(product_list.id) } ></i></li>
     )
     }
       </ul>
+      <VendorOffers />
     </div>
    )
 }

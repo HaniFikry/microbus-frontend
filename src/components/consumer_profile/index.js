@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Search from '../../containers/searchContainer'
 import './style.css'
+import {Link} from 'react-router-dom'
 
 
 export default class ConsumerProfile extends Component {
@@ -12,7 +13,6 @@ render(){
   const {wishlists, user, deleteItem} = this.props;
   return(
     <div>
-      <h2> {user.user_name} </h2>
       <h1> WISH LIST </h1>
       <Search button_name={'Add item to wishlist'} vendor={false}/>
       <ul className="wishlist">
