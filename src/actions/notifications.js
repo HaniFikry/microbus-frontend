@@ -1,4 +1,5 @@
 import Axios from 'axios'
+import {latestNotificationsApi, consumerNotificationsApi, markNotificationReadApi} from '../apiConfig'
 
 export const FETCH_USER_NOTIFICATIONS_LOADING = 'FETCH_USER_NOTIFICATIONS_LOADING'
 export const FETCH_USER_NOTIFICATIONS = 'FETCH_USER_NOTIFICATIONS'
@@ -27,7 +28,7 @@ export function fetchUserNotificationsLoading(){
 export function fetchUserNotifications(){
   return {
     type: FETCH_USER_NOTIFICATIONS,
-    payload: Axios.get(`http://localhost:3000/consumer/latest_notifications`)
+    payload: Axios.get(latestNotificationsApi)
   }
 }
 
@@ -54,7 +55,7 @@ export function markNotificationReadLoading(){
 export function markNotificationRead(notification){
   return {
     type: MARK_NOTIFICATION_READ,
-    payload: Axios.patch(`http://localhost:3000/consumer/notifications/${notification.id}` , {isRead : true} )
+    payload: Axios.patch(markNotificationReadApi(notification.id) , {isRead : true} )
   }
 }
 
@@ -88,7 +89,7 @@ export function fetchAllUserNotificationsLoading(){
 export function fetchAllUserNotifications(){
   return {
     type: FETCH_ALL_USER_NOTIFICATIONS,
-    payload: Axios.get(`http://localhost:3000/consumer/notifications`)
+    payload: Axios.get(consumerNotificationsApi)
   }
 }
 

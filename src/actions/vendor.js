@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import {vendorRegistrationApi, vendorLoginApi, currentVendorApi, vendorProductsApi, addVendorProductApi, deleteVendorProductApi, fetchProductApi, currentUserApi} from '../apiConfig'
 
 export const REGISTER_NEW_VENDOR_LOADING = 'REGISTER_NEW_VENDOR_LOADING';
 export const REGISTER_NEW_VENDOR = 'REGISTER_NEW_VENDOR';
@@ -53,7 +54,7 @@ export function registerNewVendrLoading(){
 export function registerNewVendor(vendor){
   return {
     type: REGISTER_NEW_VENDOR,
-    payload: Axios.post(`http://localhost:3000/vendor_registrations`, {vendor})
+    payload: Axios.post(vendorRegistrationApi, {vendor})
   }
 }
 
@@ -80,7 +81,7 @@ export function vendorLoginLoading(){
 export function vendorLogin(vendor){
   return {
     type: VENDOR_LOGIN,
-    payload: Axios.post(`http://localhost:3000/vendor/login`, vendor)
+    payload: Axios.post(vendorLoginApi, vendor)
   }
 }
 export function vendorLoginSuccess(response){
@@ -106,7 +107,7 @@ export function vendorLogout(){
 export function fetchVendor(){
   return {
   type: FETCH_VENDOR,
-  payload: Axios.get('http://localhost:3000/current_vendor')
+  payload: Axios.get(currentVendorApi)
   }
 }
 
@@ -126,7 +127,7 @@ export function fetchProductListLoading(){
 export function fetchProductList(){
   return {
     type: FETCH_PRODUCTLIST,
-    payload: Axios.get('http://localhost:3000/vendor_products.json')
+    payload: Axios.get(vendorProductsApi)
   }
 }
 
@@ -152,7 +153,7 @@ export function addItemToProductlistLoading(){
 export function addItemToProductlist(id){
   return {
     type: ADD_ITEM_TO_PRODUCTLIST,
-    payload: Axios.post('http://localhost:3000/vendor_products.json', {"product_id" : id})
+    payload: Axios.post(vendorProductsApi, {"product_id" : id})
   }
 }
 
@@ -180,7 +181,7 @@ export function createProductlistItemLoading(){
 export function createProductlistItem(name){
   return {
     type: CREATE_PRODUCTLIST_ITEM,
-    payload: Axios.post(`http://localhost:3000/vendor/addproduct.json`, {"name": name})
+    payload: Axios.post(addVendorProductApi, {"name": name})
   }
 }
 
@@ -207,7 +208,7 @@ export function deleteProductlistItemLoading(){
 export function deleteProductlistItem(id){
   return {
     type: DELETE_PRODUCTLIST_ITEM,
-    payload: Axios.delete('http://localhost:3000/vendor/deleteproduct' , {params: {"id": id}})
+    payload: Axios.delete(deleteVendorProductApi , {params: {"id": id}})
   }
 }
 
@@ -235,7 +236,7 @@ export function fetchProduct(id){
   console.log(id )
   return {
     type: FETCH_PRODUCT,
-    payload: Axios.get(`http://localhost:3000/vendor_products/${id}.json`)
+    payload: Axios.get(fetchProductApi(id))
   }
 }
 
@@ -256,7 +257,7 @@ export function fetchProductFailure(error){
 export function updateVendorBalance(){
   return {
   type: UPDATE_VENDOR_BALANCE,
-  payload: Axios.get('http://localhost:3000/current_user')
+  payload: Axios.get(currentUserApi)
   }
 }
 

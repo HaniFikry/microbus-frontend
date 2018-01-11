@@ -1,4 +1,5 @@
 import Axios from 'axios'
+import {offersApi, vendorOffersApi, offerDetailsApi, topOffersApi} from '../apiConfig'
 
 export const CREATE_OFFER_LOADING = 'CREATE_OFFER_LOADING'
 export const CREATE_OFFER = 'CREATE_OFFER'
@@ -35,7 +36,7 @@ export function createOfferLoading(){
 export function createOffer(offer){
   return {
     type: CREATE_OFFER,
-    payload: Axios.post(`http://localhost:3000/offers`, offer )
+    payload: Axios.post(offersApi, offer )
   }
 }
 
@@ -62,7 +63,7 @@ export function fetchVendorOffersLoading(){
 export function fetchVendorOffers(){
   return {
     type: FETCH_VENDOR_OFFERS,
-    payload: Axios.get(`http://localhost:3000/current_vendor_offers.json`)
+    payload: Axios.get(vendorOffersApi)
   }
 }
 
@@ -90,7 +91,7 @@ export function fetchAllOffersLoading(){
 export function fetchAllOffers(){
   return {
     type: FETCH_ALL_OFFERS,
-    payload: Axios.get(`http://localhost:3000/offers.json`)
+    payload: Axios.get(offersApi)
   }
 }
 
@@ -118,7 +119,7 @@ export function fetchOfferDetailsLoading(){
 export function fetchOfferDetails(id){
   return {
     type: FETCH_OFFER_DETAILS,
-    payload: Axios.get(`http://localhost:3000/offers/${id}.json`)
+    payload: Axios.get(offerDetailsApi(id))
 
   }
 }
@@ -146,7 +147,7 @@ export function fetchTopOffersLoading(){
 export function fetchTopOffers(){
   return {
     type: FETCH_TOP_OFFERS,
-    payload: Axios.get(`http://localhost:3000/top_offers.json`)
+    payload: Axios.get(topOffersApi)
   }
 }
 

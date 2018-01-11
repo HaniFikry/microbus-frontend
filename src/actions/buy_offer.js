@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import {buyOfferApi} from '../apiConfig'
 
 export const BUY_OFFER_LOADING = 'BUY_OFFER_LOADING'
 export const BUY_OFFER = 'BUY_OFFER'
@@ -15,7 +16,7 @@ export function buyOfferLoading(){
 export function buyOffer(id){
   return {
     type: BUY_OFFER,
-    payload: Axios.post(`http://localhost:3000/offer/buy`, {offer_id : id})
+    payload: Axios.post(buyOfferApi, {offer_id : id})
   }
 }
 

@@ -1,4 +1,5 @@
 import Axios from 'axios'
+import {vendorLatestNotificationsApi, markVendorNotificationReadApi, vendorNotificationsApi} from '../apiConfig'
 
 export const FETCH_VENDOR_NOTIFICATIONS_LOADING = 'FETCH_VENDOR_NOTIFICATIONS_LOADING'
 export const FETCH_VENDOR_NOTIFICATIONS = 'FETCH_VENDOR_NOTIFICATIONS'
@@ -29,7 +30,7 @@ export function fetchVendorNotificationsLoading(){
 export function fetchVendorNotifications(){
   return {
     type: FETCH_VENDOR_NOTIFICATIONS,
-    payload: Axios.get(`http://localhost:3000/vendor/latest_notifications`)
+    payload: Axios.get(vendorLatestNotificationsApi)
   }
 }
 
@@ -56,7 +57,7 @@ export function markVendorNotificationReadLoading(){
 export function markVendorNotificationRead(notification){
   return {
     type: MARK_VENDOR_NOTIFICATION_READ,
-    payload: Axios.patch(`http://localhost:3000/vendor/notifications/${notification.id}` , {isRead : true} )
+    payload: Axios.patch(markVendorNotificationReadApi(notification.id) , {isRead : true} )
   }
 }
 
@@ -89,7 +90,7 @@ export function fetchAllVendorNotificationsLoading(){
 export function fetchAllVendorNotifications(){
   return {
     type: FETCH_ALL_VENDOR_NOTIFICATIONS,
-    payload: Axios.get(`http://localhost:3000/vendor/notifications`)
+    payload: Axios.get(vendorNotificationsApi)
   }
 }
 

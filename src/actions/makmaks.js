@@ -1,4 +1,6 @@
 import Axios from 'axios'
+import {chargeMakmaksApi} from '../apiConfig'
+
 
 export const CHARGE_MAKMAKS_LOADING = 'CHARGE_MAKMAKS_LOADING'
 export const CHARGE_MAKMAKS = 'CHARGE_MAKMAKS'
@@ -14,7 +16,7 @@ export function chargeMakmaksLoading(){
 export function chargeMakmaks(amount){
   return {
     type: CHARGE_MAKMAKS,
-    payload: Axios.post(`http://localhost:3000/charge_makmaks`, {amount :amount})
+    payload: Axios.post(chargeMakmaksApi, {amount :amount})
   }
 }
 

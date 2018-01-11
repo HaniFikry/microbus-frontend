@@ -1,4 +1,6 @@
 import Axios from 'axios';
+import {consumerRegistrationApi, userLoginApi, currentUserApi, wishlistApi, addProductApi, deleteProductApi } from '../apiConfig'
+
 
 export const REGISTER_NEW_USER_LOADING = 'REGISTER_NEW_USER_LOADING';
 export const REGISTER_NEW_USER = 'REGISTER_NEW_USER';
@@ -47,7 +49,7 @@ export function registerNewUserLoading(){
 export function registerNewUser(consumer){
   return {
     type: REGISTER_NEW_USER,
-    payload: Axios.post(`http://localhost:3000/consumer_registrations`, {consumer})
+    payload: Axios.post(consumerRegistrationApi, {consumer})
   }
 }
 
@@ -74,7 +76,7 @@ export function userLoginLoading(){
 export function userLogin(user){
   return {
     type: USER_LOGIN,
-    payload: Axios.post(`http://localhost:3000/consumer/login`, user)
+    payload: Axios.post(userLoginApi, user)
   }
 }
 export function userLoginSuccess(response){
@@ -100,7 +102,7 @@ export function userLogout(){
 export function fetchUser(){
   return {
   type: FETCH_USER,
-  payload: Axios.get('http://localhost:3000/current_user')
+  payload: Axios.get(currentUserApi)
   }
 }
 
@@ -120,7 +122,7 @@ export function fetchWishListLoading(){
 export function fetchWishList(){
   return {
     type: FETCH_WISHLIST,
-    payload: Axios.get('http://localhost:3000/wishlists.json')
+    payload: Axios.get(wishlistApi)
   }
 }
 
@@ -147,7 +149,7 @@ export function addItemToWishlistLoading(){
 export function addItemToWishlist(id){
   return {
     type: ADD_ITEM_TO_WISHLIST,
-    payload: Axios.post('http://localhost:3000/wishlists.json', {"product_id" : id})
+    payload: Axios.post(wishlistApi, {"product_id" : id})
   }
 }
 
@@ -175,7 +177,7 @@ export function createWishlistItemLoading(){
 export function createWishlistItem(name){
   return {
     type: CREATE_WISHLIST_ITEM,
-    payload: Axios.post(`http://localhost:3000/consumer/addproduct.json`, {"name": name})
+    payload: Axios.post(addProductApi, {"name": name})
   }
 }
 
@@ -201,7 +203,7 @@ export function deleteWishlistItemLoading(){
 export function deleteWishlistItem(id){
   return {
     type: DELETE_WISHLIST_ITEM,
-    payload: Axios.delete('http://localhost:3000/consumer/deleteproduct' , {params: {"id": id}})
+    payload: Axios.delete(deleteProductApi , {params: {"id": id}})
   }
 }
 
