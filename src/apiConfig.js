@@ -1,7 +1,13 @@
 const rootApi = process.env.NODE_ENV === 'production'
   ? `https://microbus-api.herokuapp.com`
   :`http://localhost:3000`
-export default rootApi
+export const rootApi
+
+const webSocketApi = process.env.NODE_ENV === 'production'
+  ? `ws://microbus-api.herokuapp.com/cable?token=${localStorage.jwtToken}`
+   : `ws://localhost:3000/cable?token=${localStorage.jwtToken}`
+export const webSocketApi
+console.log
 
 // Users
 export const consumerRegistrationApi = `${rootApi}/consumer_registrations`;
@@ -30,3 +36,4 @@ export const vendorProductsApi  =`${rootApi}/vendor_products.json`;
 export const addVendorProductApi  =`${rootApi}/vendor/addproduct.json`;
 export const deleteVendorProductApi = `${rootApi}/vendor/deleteproduct`;
 export const fetchProductApi = (id) => `${rootApi}/vendor_products/${id}.json`;
+export const searchApi = (value) => `${rootApi}/search?query=${value}`;

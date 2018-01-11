@@ -3,7 +3,7 @@ import { Menu, Dropdown, Icon, Badge } from 'antd';
 import './style.css'
 import {Link} from 'react-router-dom'
 import Cable from 'actioncable';
-
+import {webSocketApi} from '../apiConfig'
 
 
 
@@ -21,7 +21,7 @@ componentWillMount(){
 }
 createSocket() {
   const {user, vendor, addNewNotification, addNewVendorNotification} = this.props;
-    let cable = Cable.createConsumer(`ws://localhost:3000/cable?token=${localStorage.jwtToken}`);
+    let cable = Cable.createConsumer(webSocketApi);
     if (user.user_name) {
     var notificationsCable = cable.subscriptions.create({
       channel: `NotificationsChannel`
