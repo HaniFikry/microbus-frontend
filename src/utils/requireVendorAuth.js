@@ -5,9 +5,11 @@ import history from '../history'
 export default function(ComposedComponent){
 class AuthenticateVendor extends Component {
   componentWillMount(){
-    if(!this.props.vendor.user_name){
-      history.push('/vendor/login')
-    }
+    setTimeout(() => {
+      if(!this.props.vendor.user_name){
+        history.push('/vendor/login')
+      }
+    }, 500)
   }
   render(){
     return(
