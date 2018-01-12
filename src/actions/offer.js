@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import {offersApi, vendorOffersApi, offerDetailsApi, topOffersApi} from '../apiConfig'
+import {offersApi, vendorOffersApi, offerDetailsApi, topOffersApi, latestOffersApi} from '../apiConfig'
 
 export const CREATE_OFFER_LOADING = 'CREATE_OFFER_LOADING'
 export const CREATE_OFFER = 'CREATE_OFFER'
@@ -25,6 +25,12 @@ export const FETCH_TOP_OFFERS_LOADING = 'FETCH_TOP_OFFERS_LOADING'
 export const FETCH_TOP_OFFERS = 'FETCH_TOP_OFFERS'
 export const FETCH_TOP_OFFERS_SUCCESS = 'FETCH_TOP_OFFERS_SUCCESS'
 export const FETCH_TOP_OFFERS_FAILURE = 'FETCH_TOP_OFFERS_FAILURE'
+
+export const FETCH_LATEST_OFFERS_LOADING = 'FETCH_LATEST_OFFERS_LOADING'
+export const FETCH_LATEST_OFFERS = 'FETCH_LATEST_OFFERS'
+export const FETCH_LATEST_OFFERS_SUCCESS = 'FETCH_LATEST_OFFERS_SUCCESS'
+export const FETCH_LATEST_OFFERS_FAILURE = 'FETCH_LATEST_OFFERS_FAILURE'
+
 
 
 export function createOfferLoading(){
@@ -162,6 +168,35 @@ export function fetchTopOffersSuccess(response){
 export function fetchTopOffersFailure(error){
   return {
     type: FETCH_TOP_OFFERS_FAILURE,
+    error
+  }
+}
+
+
+export function fetchLatestOffersLoading(){
+  return {
+    type: FETCH_LATEST_OFFERS_LOADING
+  }
+}
+
+export function fetchLatestOffers(){
+  return {
+    type: FETCH_LATEST_OFFERS,
+    payload: Axios.get(latestOffersApi)
+  }
+}
+
+export function fetchLatestOffersSuccess(response){
+  return {
+    type: FETCH_LATEST_OFFERS_SUCCESS,
+    offers: response.payload.data
+
+  }
+}
+
+export function fetchLatestOffersFailure(error){
+  return {
+    type: FETCH_LATEST_OFFERS_FAILURE,
     error
   }
 }

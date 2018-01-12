@@ -2,7 +2,8 @@ import {CREATE_OFFER_LOADING, CREATE_OFFER_SUCCESS, CREATE_OFFER_FAILURE,
         FETCH_VENDOR_OFFERS_LOADING, FETCH_VENDOR_OFFERS_SUCCESS, FETCH_VENDOR_OFFERS_FAILURE,
         FETCH_ALL_OFFERS_LOADING, FETCH_ALL_OFFERS_SUCCESS, FETCH_ALL_OFFERS_FAILURE,
         FETCH_OFFER_DETAILS_LOADING, FETCH_OFFER_DETAILS, FETCH_OFFER_DETAILS_SUCCESS, FETCH_OFFER_DETAILS_FAILURE,
-        FETCH_TOP_OFFERS_LOADING, FETCH_TOP_OFFERS, FETCH_TOP_OFFERS_SUCCESS, FETCH_TOP_OFFERS_FAILURE} from '../actions/offer'
+        FETCH_TOP_OFFERS_LOADING, FETCH_TOP_OFFERS, FETCH_TOP_OFFERS_SUCCESS, FETCH_TOP_OFFERS_FAILURE,
+        FETCH_LATEST_OFFERS_LOADING, FETCH_LATEST_OFFERS, FETCH_LATEST_OFFERS_SUCCESS, FETCH_LATEST_OFFERS_FAILURE} from '../actions/offer'
 
 const INITIAL_STATE = {
   offer: {},
@@ -10,7 +11,8 @@ const INITIAL_STATE = {
   loading: false,
   offers : [],
   offerDetails: {},
-  topOffers: []
+  topOffers: [],
+  LatestOffers: []
 }
 
 export default function(currentState = INITIAL_STATE, action) {
@@ -100,7 +102,24 @@ export default function(currentState = INITIAL_STATE, action) {
         loading: false,
         error: action.error
       }
-
+      
+    case FETCH_LATEST_OFFERS_LOADING:
+      return {
+        ...currentState,
+        loading:true
+      }
+    case FETCH_LATEST_OFFERS_SUCCESS:
+      return {
+        ...currentState,
+        LatestOffers: action.offers,
+        loading: false
+      }
+    case FETCH_LATEST_OFFERS_FAILURE:
+      return {
+        ...currentState,
+        loading: false,
+        error: action.error
+      }
 
 
       default:

@@ -20,6 +20,8 @@ export const consumerNotificationsApi  =`${rootApi}/consumer/notifications`;
 export const markNotificationReadApi = (id) => `${rootApi}/consumer/notifications/${id}`;
 export const offersApi = `${rootApi}/offers.json`
 export const topOffersApi = `${rootApi}/top_offers.json`
+export const latestOffersApi = `${rootApi}/latest_offers.json`
+
 export const vendorOffersApi = `${rootApi}/current_vendor_offers.json`
 export const offerDetailsApi = (id) => `${rootApi}/offers/${id}.json`
 export const vendorNotificationsApi  =`${rootApi}/vendor/notifications`;

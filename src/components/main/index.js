@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import './style.css'
 import {Link} from 'react-router-dom'
-import {  Image, Grid, Col, Row, Thumbnail, Carousel, Button } from 'react-bootstrap';
+import {  Image, Grid, Col, Row, Thumbnail, Carousel, Button, Jumbotron } from 'react-bootstrap';
+import LatestOffers from '../../containers/latestOffersContainer'
+
 
 // import TopProducts from '../../containers/TopProductsContainer'
 
@@ -17,8 +19,17 @@ export default class Main extends Component {
 
 	  return(
 	  	<div className="main">
-		  		<h1>Microbus.. The Power of US!</h1>
-		  	<div className="topOffers">
+			<Jumbotron>
+				<h1>Hello, world!</h1>
+				<p>
+					This is a simple hero unit, a simple jumbotron-style component for calling
+					extra attention to featured content or information.
+				</p>
+				<p>
+					<Button bsStyle="primary">Learn more</Button>
+				</p>
+			</Jumbotron>		  	
+			<div className="topOffers">
 			  	<h2>Most Purchased Offers</h2>
 		  					<Carousel>
 
@@ -44,6 +55,7 @@ export default class Main extends Component {
 				  	<Row>{}</Row>
 				  </Grid>
 		    </div>
+		    <LatestOffers />
 		</div>
 	  )
 	}
