@@ -5,9 +5,12 @@ import history from '../history'
 export default function(ComposedComponent){
 class Authenticate extends Component {
   componentWillMount(){
-    if(!this.props.user.user_name){
-      history.push('/consumer/login')
-    }
+      setTimeout(() => {
+        if(!this.props.user.user_name){
+          history.push('/consumer/login')
+        }
+      }, 500)
+
   }
   render(){
     return(
@@ -15,6 +18,7 @@ class Authenticate extends Component {
     )
   }
 }
+
 function mapStateToProps(state) {
   return {
     user: state.microbus.user
