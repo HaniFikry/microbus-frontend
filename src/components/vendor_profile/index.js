@@ -15,8 +15,6 @@ render(){
   const {product_lists, vendor, deleteProduct} = this.props;
   return(
     <div>
-      <Tabs defaultActiveKey={2} className="tabs">
-  	     <Tab eventKey={1} title="Product catalogue">
            <div className='product_catalogue'>
                <h1> Product catalogue </h1>
                <Search button_name={'add product to product catalogue'} vendor={true}/>
@@ -28,11 +26,6 @@ render(){
              }
                </ul>
            </div>
-      	 </Tab>
-      	 <Tab eventKey={2} title="My offers">
-      		<VendorOffers />
-      	 </Tab>
-      </Tabs>
     </div>
    )
 }

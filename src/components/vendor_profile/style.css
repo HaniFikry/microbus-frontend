@@ -41,3 +41,7 @@
   width: 500px;
   margin: 0 auto;
 }
+
+.nav-stacked>li {
+  width: 300px;
+}
