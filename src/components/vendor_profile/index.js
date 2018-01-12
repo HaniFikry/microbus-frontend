@@ -19,7 +19,8 @@ export default class ProfileSider extends Component {
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider
-          collapsible
+          breakpoint="lg"
+          collapsedWidth="0"
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
           width="300"
