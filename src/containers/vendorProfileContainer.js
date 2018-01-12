@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import {fetchProductListLoading, fetchProductList, fetchProductListSuccess, fetchProductListFailure, deleteProductlistItem, deleteProductlistItemLoading, deleteProductlistItemSuccess, deleteProductlistItemFailure} from '../actions/vendor'
-import vendor_profile from '../components/vendor_profile'
+import vendor_products from '../components/vendor_products'
 const mapStateToProps = function(state) {
   return {
   product_lists: state.vendor.product_list,
@@ -32,4 +32,4 @@ const mapDispatchToProps = function(dispatch){
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(vendor_profile);
+export default connect(mapStateToProps, mapDispatchToProps)(vendor_products);

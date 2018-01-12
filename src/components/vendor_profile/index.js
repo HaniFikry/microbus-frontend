@@ -1,52 +1,55 @@
-import React, {Component} from 'react';
-import Search from '../../containers/searchContainer'
-import './style.css'
-import {Link} from 'react-router-dom'
+import React, {Component} from 'react'
 import VendorOffers from '../../containers/vendorOffersContainer'
-import {Tabs, Tab } from 'react-bootstrap'
+import VendorProducts from '../../containers/vendorProfileContainer'
+import './style.css'
+import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+const { Header, Content, Footer, Sider } = Layout;
+const SubMenu = Menu.SubMenu;
 
 
-export default class VendorProfile extends Component {
+export default class ProfileSider extends Component {
+  state = {
+    collapsed: false,
+    page: 'products'
+  };
+  onCollapse = (collapsed) => {
+    this.setState({ collapsed });
+  }
+  render() {
+    return (
+      <Layout style={{ minHeight: '100vh' }}>
+        <Sider
+          collapsible
+          collapsed={this.state.collapsed}
+          onCollapse={this.onCollapse}
+          width="300"
+        >
+          <div className="logo" />
+          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+            <Menu.Item key="1" >
+              <div className="profile-tab" onClick={() => {this.setState({page: "products"}); console.log(this.state)}}>
+                <Icon type="pie-chart" />
+                <span className="profile-tab">Product list</span>
+              </div>
+            </Menu.Item>
+            <Menu.Item key="2" >
+              <div className="profile-tab" onClick={() => this.setState({page: "offers"})}>
+                <Icon type="desktop" />
+                <span>Current offers</span>
+              </div>
+            </Menu.Item>
+          </Menu>
+        </Sider>
+        <Layout>
+          <Content style={{ margin: '0 16px' }}>
+          {
+            (this.state.page == 'products') ?
+            <VendorProducts /> : <VendorOffers />
+          }
 
-componentWillMount(){
-  this.props.getProductList();
-}
-render(){
-  const {product_lists, vendor, deleteProduct} = this.props;
-  return(
-    <div>
-           <div className='product_catalogue'>
-               <h1> Product catalogue </h1>
-               <Search button_name={'add product to product catalogue'} vendor={true}/>
-               <ul className='productlist'>
-             {
-               product_lists.map((product_list) =>
-               <li> {product_list.product_name} ({product_list.product_demand}) <Link to={`/products/${product_list.id}`} > Make offer </Link> <i class="fa fa-trash-o" aria-hidden="true" onClick={() => deleteProduct(product_list.id) } ></i></li>
-             )
-             }
-               </ul>
-           </div>
-    </div>
-   )
-}
-// render(){
-//   const {product_lists, vendor, deleteProduct} = this.props;
-//   return(
-//     <div>
-//       <div className='product_catalogue'>
-//           <h1> Product catalogue </h1>
-//           <Search button_name={'add product to product catalogue'} vendor={true}/>
-//           <ul className='productlist'>
-//         {
-//           product_lists.map((product_list) =>
-//           <li> {product_list.product_name} ({product_list.product_demand}) <Link to={`/products/${product_list.id}`} > Make offer </Link> <i class="fa fa-trash-o" aria-hidden="true" onClick={() => deleteProduct(product_list.id) } ></i></li>
-//         )
-//         }
-//           </ul>
-//       </div>
-//       <VendorOffers />
-//     </div>
-//    )
-// }
-
+          </Content>
+        </Layout>
+      </Layout>
+    );
+  }
 }

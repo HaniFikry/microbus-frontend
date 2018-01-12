@@ -20,7 +20,7 @@ import Main from './containers/MainContainer'
 import list_notifications from './containers/listNotificationsContainer'
 import requireAuth from './utils/requireAuth'
 import requireVendorAuth from './utils/requireVendorAuth'
-import Test from './components/test'
+import VendorProfile from './components/vendor_profile'
 
 
 class App extends Component {
@@ -38,7 +38,7 @@ class App extends Component {
       <Route path="/consumer/login" component={Login} />
       <Route path="/vendor/login" component={VendorLogin} />
       <Route path="/consumer/profile" component={requireAuth(consumer_profile)} />
-      <Route path="/vendor/profile" component={requireVendorAuth(Test)} />
+      <Route path="/vendor/profile" component={requireVendorAuth(VendorProfile)} />
       <Route path="/products/:id" component={requireVendorAuth(offerForm)} />
       <Route path="/consumer/notifications" component={requireAuth(list_notifications)} />
       <Route path="/vendor/notifications" component={requireVendorAuth(list_notifications)} />
