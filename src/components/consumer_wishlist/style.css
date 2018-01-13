@@ -1,5 +1,5 @@
 .wishlist i {
-  margin-left: 30px;
+  margin: 0 30px;
   padding: 5px;
   background: red;
   color: white;
@@ -9,13 +9,29 @@
 }
 
 .wishlist {
-  margin-top: 10px;
+  margin: 10px auto;
+
 }
+.consumer_wishlist h1{
+  text-transform: uppercase;
+}
+
+
 .wishlist li {
-  width: 330px;
+  width: 35%;
   margin: 0 auto;
   position: relative;
   font-size: 14px;
   margin-bottom: 15px;
-  text-align: left
+  text-align: left;
+  text-transform: capitalize;
+
+}
+
+
+@media (max-width: 700px){
+  .wishlist li{
+    width: 90%;
+
+  }
 }

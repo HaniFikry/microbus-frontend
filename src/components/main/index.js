@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
-import './style.css'
-import {Link} from 'react-router-dom'
-import {  Image, Grid, Col, Row, Thumbnail, Carousel, Button, Jumbotron } from 'react-bootstrap';
+import './style.css';
+import {Link} from 'react-router-dom';
+import {  Image, Grid, Col, Row, Thumbnail, Button, Jumbotron } from 'react-bootstrap';
 import LatestOffers from '../../containers/latestOffersContainer'
-
-
-// import TopProducts from '../../containers/TopProductsContainer'
+import { Carousel } from 'antd';
 
 
 export default class Main extends Component {
@@ -33,31 +31,28 @@ export default class Main extends Component {
 				</div>
 		  	<div className="topOffers">
 			  	<h2>Most Purchased Offers</h2>
-		  					<Carousel>
-								{
-				    		topOffers.map((offer) =>
-				    		{
-				    		if (offer.status === 'progress'){
-					    		return(
-										<Carousel.Item>
-			    						<Thumbnail  src={offer.thumbnail} height={500}>
+  				<Carousel autoplay>
+						{
+			    		topOffers.map((offer) =>
+			    		{
+			    		if (offer.status === 'progress'){
+				    		return(
+									<div>
+		    						<Thumbnail  src={offer.thumbnail} height={500}>
 
-				    						<h3>{offer.name}</h3>
-				    						<Button bsStyle="primary"><Link to={`/offers/${offer.id}`}>Buy now</Link></Button>
-				    						<p>Price: {offer.price}</p>
-			    						</Thumbnail>
-										</Carousel.Item>
-					    			)
-				    			}
-				    		})
-				  	  }
-							</Carousel>
-				  <Grid>
-				  	<Row>{}</Row>
-				  </Grid>
+			    						<h3>{offer.name}</h3>
+			    						<Button bsStyle="primary"><Link to={`/offers/${offer.id}`}>Buy now</Link></Button>
+			    						<p>Price: {offer.price}</p>
+		    						</Thumbnail>
+									</div>
+				    			)
+			    			}
+			    		})
+			  	  }
+					</Carousel>
 		    </div>
 		    <LatestOffers />
-		</div>
+			</div>
 	  )
 	}
 

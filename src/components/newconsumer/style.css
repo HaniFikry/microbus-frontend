@@ -1,0 +1,35 @@
+.register{
+	margin-top: 30px;
+}
+
+.register .submit{
+	background: #337ab7;
+	border:1px solid #2e6da4;
+	border-radius: 4px;
+	color: #FFF;
+	padding: 3px 10px;
+
+}
+
+.register input{
+	border-radius: 5px;
+	padding: 0 5px;
+
+}
+
+
+@media (max-width: 768px){
+	.register{
+		margin-top: 120px;
+	}
+	.register p{
+		font-size: 20px; 
+		margin-bottom: 5px;
+	}
+	.register input{
+		font-size: 15px;
+	}
+	.register .submit{
+		margin-top: 15px;
+	}
+}

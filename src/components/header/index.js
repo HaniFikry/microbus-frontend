@@ -24,35 +24,34 @@ export default class HeaderComponent extends Component {
     				        <Link to='/'>Microbus</Link>
     			     </Navbar.Brand>
   			       <Navbar.Toggle />
-  		     </Navbar.Header>
-  		    <Navbar.Collapse>
-      			<Nav>
-      				<NavItem eventKey={1} >
-      					<Link to='/consumer/profile'>Profile</Link>
-      				</NavItem>
-      				<NavItem eventKey={2}>
-      					<Link to='/offers'>Offers</Link>
-      				</NavItem>
-      			</Nav>
+  		      </Navbar.Header>
+    		    <Navbar.Collapse>
+        			<Nav>
+        				<NavItem eventKey={1} >
+        					<Link to='/consumer/profile'>Profile</Link>
+        				</NavItem>
+        				<NavItem eventKey={2}>
+        					<Link to='/offers'>Offers</Link>
+        				</NavItem>
+        			</Nav>
+        			<Nav pullRight>
+        				<NavItem eventKey={1} >
 
-      			 <Nav pullRight>
-      				<NavItem eventKey={1} >
-
-              Signed in as : {user.user_name}
-      				</NavItem>
-      				<NavItem eventKey={3} >
-      					Current balance: {user.user_balance}
-      				</NavItem>
-      				<NavItem eventKey={3} >
-                <Notifications />
-      				</NavItem>
-      				<NavItem eventKey={2} href="#" onClick={() => logout()}>
-      					Sign out
-      				</NavItem>
-      			</Nav>
-  		   </Navbar.Collapse>
-  	    </Navbar>
-      </div>
+                Signed in as : {user.user_name}
+        				</NavItem>
+        				<NavItem eventKey={3} >
+        					Current balance: {user.user_balance}
+        				</NavItem>
+        				<NavItem eventKey={3} >
+                  <Notifications />
+        				</NavItem>
+        				<NavItem eventKey={2} href="#" onClick={() => logout()}>
+        					Sign out
+        				</NavItem>
+        			</Nav>
+    		    </Navbar.Collapse>
+  	      </Navbar>
+        </div>
       )
     }else if (vendor.user_type == 'vendor') {
       return (

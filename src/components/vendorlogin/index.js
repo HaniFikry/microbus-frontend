@@ -33,6 +33,8 @@ export default class VendorLogin extends Component {
       <div>
         <h2 className="secondary-header"> Vendor Login </h2>
 
+
+      <div className="login">
         {
         error ?
         <Alert
@@ -40,21 +42,21 @@ export default class VendorLogin extends Component {
            type="error"
            closable
         /> : null
-       }
+        }
         <form onSubmit={(event) => {event.preventDefault(); loginVendor(this.state)}}>
-      <div>
-        <label>
-          <p> Email: </p>
-          <input type="text" value={this.state.email} name='email' onChange={this.handleChange.bind(this)} required={true}/>
-        </label>
-      </div>
         <div>
-        <label>
-          <p> Password: </p>
-          <input type="password" value={this.state.password} name='password' onChange={this.handleChange.bind(this)} required={true}/>
-        </label>
-      </div>
-        <input type="submit" value="Login"  />
+          <label>
+            <p> Email: </p>
+            <input type="text" value={this.state.email} name='email' onChange={this.handleChange.bind(this)} required={true}/>
+          </label>
+        </div>
+        <div>
+          <label>
+            <p> Password: </p>
+            <input type="password" value={this.state.password} name='password' onChange={this.handleChange.bind(this)} required={true}/>
+          </label>
+        </div>
+        <input className="submit" type="submit" value="Login"  />
 
       </form>
       </div>

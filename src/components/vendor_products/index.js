@@ -14,7 +14,7 @@ export default class VendorProducts extends Component {
     const {product_lists, vendor, deleteProduct} = this.props;
     return(
       <div className='product_catalogue'>
-        <h1> Product catalogue </h1>
+        <h1> Product Catalogue </h1>
         <Search button_name={'add product to product catalogue'} vendor={true}/>
         <ul className='productlist'>
           {

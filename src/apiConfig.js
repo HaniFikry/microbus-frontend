@@ -27,7 +27,7 @@ export const offerDetailsApi = (id) => `${rootApi}/offers/${id}.json`
 export const vendorNotificationsApi  =`${rootApi}/vendor/notifications`;
 export const vendorLatestNotificationsApi  =`${rootApi}/vendor/latest_notifications`;
 export const markVendorNotificationReadApi = (id) => `${rootApi}/vendor/notifications/${id}`;
-export const boughtOffersApi = `${rootApi}/bought_offers`
+export const boughtOffersApi = `${rootApi}/bought_offers.json`
 export const vendorRegistrationApi = `${rootApi}/vendor_registrations`;
 export const vendorLoginApi  =`${rootApi}/vendor/login`;
 export const currentVendorApi  =`${rootApi}/current_vendor`;

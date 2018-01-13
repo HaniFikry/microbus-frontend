@@ -23,11 +23,9 @@ export default class ProfileSider extends Component {
       <h2 className="secondary-header"> My Profile </h2>
       <Layout style={{ minHeight: '88vh' }}>
         <Sider
-          breakpoint="lg"
-          collapsedWidth="0"
+          collapsible
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
-          width="300"
         >
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
