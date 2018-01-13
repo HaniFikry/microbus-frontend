@@ -1,0 +1,14 @@
+.progress {
+  width: 400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 700px){
+
+  .offer_card img {
+    width:30%;
+  }
+  .progress {
+    width: 200px;
+  }
+}

@@ -33,27 +33,47 @@
 	text-shadow: 4px 2px 4px black;
 
 }
+
 .thumbnail img {
  	height: 180px;
 }
+
 .topOffers .thumbnail{
 	border:0;
+	background: #f6f7f9;
 }
 
-.carousel-indicators{
-	margin-bottom: 10px;
+.topOffers h2{
+	margin-top: 20px;
+}
 
-}
-.carousel-indicators li{
-	border-color: #ccc;
-}
-.carousel-indicators .active{
-	background-color: #ccc;
-}
 .btn-primary a {
 	color: #fff;
 }
 
 .jumbotron {
 	background: none;
+}
+
+
+.ant-carousel .slick-slide {
+  text-align: center;
+  line-height: 160px;
+  overflow: hidden;
+}
+.ant-carousel .slick-dots li.slick-active button {
+	background: #001529;
+}
+
+@media (max-height: 500px) {
+	.main h1{
+		padding-top: 50px;
+	}
+}
+
+
+@media (max-height: 300px) {
+	.main h1{
+		padding-top: 5px;
+	}
 }

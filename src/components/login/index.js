@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import 'antd/dist/antd.css';
 import {Alert} from 'antd';
 import history from '../../history'
-
+import './style.css'
 
 
 export default class Login extends Component {
@@ -32,7 +32,7 @@ export default class Login extends Component {
   render() {
     const {loginConsumer, error} = this.props;
     return(
-      <div>
+      <div className="login">
         {
         error ?
         <Alert
@@ -40,24 +40,22 @@ export default class Login extends Component {
            type="error"
            closable
         /> : null
-       }
-
+        }
         <form onSubmit={(event) => {event.preventDefault(); loginConsumer(this.state)}}>
-      <div>
-        <label>
-          <p> Email: </p>
-          <input type="text" value={this.state.email} name='email' onChange={this.handleChange.bind(this)} required={true}/>
-        </label>
-      </div>
-        <div>
-        <label>
-          <p> Password: </p>
-          <input type="password" value={this.state.password} name='password' onChange={this.handleChange.bind(this)} required={true}/>
-        </label>
-      </div>
-        <input type="submit" value="Login"  />
-
-      </form>
+          <div>
+            <label>
+              <p> Email: </p>
+              <input type="text" value={this.state.email} name='email' onChange={this.handleChange.bind(this)} required={true}/>
+            </label>
+          </div>
+          <div>
+            <label>
+              <p> Password: </p>
+              <input type="password" value={this.state.password} name='password' onChange={this.handleChange.bind(this)} required={true}/>
+            </label>
+          </div>
+          <input className="submit" type="submit" value="Login"  />
+        </form>
       </div>
     )
   }

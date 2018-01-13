@@ -13,8 +13,8 @@ componentWillMount(){
 render(){
   const {wishlists, user, deleteItem} = this.props;
   return(
-    <div>
-      <h1> WISH LIST </h1>
+    <div className="consumer_wishlist">
+      <h1> Wishlist</h1>
       <Search button_name={'Add item to wishlist'} vendor={false}/>
       <ul className="wishlist">
           {

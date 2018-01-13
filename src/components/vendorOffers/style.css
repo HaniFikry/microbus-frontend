@@ -15,10 +15,7 @@
 }
 
 .offer_card img {
-
-
   width:10%;
-
 }
 .offer_card h1 {
   text-transform: capitalize;
@@ -54,4 +51,11 @@
   .progress {
     width: 200px;
   }
+}
+
+@media (min-width: 1200px){
+  .container {
+    width: 100%
+  } 
+
 }

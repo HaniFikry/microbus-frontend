@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import VendorOffers from '../../containers/vendorOffersContainer'
 import VendorProducts from '../../containers/vendorProfileContainer'
-import './style.css'
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -21,11 +20,9 @@ export default class ProfileSider extends Component {
         <h2 className="secondary-header"> My Profile </h2>
         <Layout style={{ minHeight: '100vh' }}>
           <Sider
-            breakpoint="lg"
-            collapsedWidth="0"
+            collapsible
             collapsed={this.state.collapsed}
             onCollapse={this.onCollapse}
-            width="300"
           >
             <div className="logo" />
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
