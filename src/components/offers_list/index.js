@@ -13,11 +13,7 @@ export default class OffersList extends Component {
     const {offers} = this.props;
     return (
       <div className='offerList'>
-<<<<<<< HEAD
-          <h1>Ongoing Offers</h1>
-=======
         <h2> All Offers </h2>
->>>>>>> 74653e4d5de1a26610746478ad9d6dff3f52157e
           <Grid>
           <Row>
         {
