@@ -3,7 +3,10 @@ import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 import STRIPE_PUBLISHABLE from './constants/stripe';
 import PAYMENT_SERVER_URL from './constants/server';
+import {Alert} from 'antd'
 const CURRENCY = 'EGP';
+
+
 
 export default class Checkout extends Component {
 
@@ -32,9 +35,10 @@ export default class Checkout extends Component {
     .catch(this.errorPayment);
 
 render(){
- const { name, description, amount } = this.props;
+ const { name, description, amount, message} = this.props;
   return (
     <div>
+
       <StripeCheckout
         name={name}
         description={description}
@@ -43,6 +47,12 @@ render(){
         currency={CURRENCY}
         stripeKey={STRIPE_PUBLISHABLE}
       />
+
+      {
+      message ?
+        <Alert message={message} type="success" showIcon   closable />
+      : ''
+      }
     </div>
 )
 }

@@ -56,6 +56,7 @@ export default class HeaderComponent extends Component {
       )
     }else if (vendor.user_type == 'vendor') {
       return (
+        <div className="navigation-bar">
         <Navbar inverse collapseOnSelect>
   		     <Navbar.Header>
     			    <Navbar.Brand>
@@ -89,36 +90,39 @@ export default class HeaderComponent extends Component {
       			</Nav>
   		   </Navbar.Collapse>
 	     </Navbar>
+     </div>
       )
     } else {
       return (
-        <Navbar inverse collapseOnSelect>
-		      <Navbar.Header>
-  			    <Navbar.Brand>
-              <Link to='/'>Microbus</Link>
-  			     </Navbar.Brand>
-			       <Navbar.Toggle />
-		     </Navbar.Header>
-  		    <Navbar.Collapse>
-      			<Nav>
-      				<NavItem>
-      					<Link to='/new_consumer'>Register as consumer</Link>
-      				</NavItem>
-      				<NavItem >
-      					<Link to='/new_vendor'>Register as vendor</Link>
-      				</NavItem>
-      			</Nav>
+        <div className="navigation-bar">
+          <Navbar inverse collapseOnSelect>
+  		      <Navbar.Header>
+    			    <Navbar.Brand>
+                <Link to='/'>Microbus</Link>
+    			     </Navbar.Brand>
+  			       <Navbar.Toggle />
+  		     </Navbar.Header>
+    		    <Navbar.Collapse>
+        			<Nav>
+        				<NavItem>
+        					<Link to='/new_consumer'>Register as consumer</Link>
+        				</NavItem>
+        				<NavItem >
+        					<Link to='/new_vendor'>Register as vendor</Link>
+        				</NavItem>
+        			</Nav>
 
-      			 <Nav pullRight>
-      				<NavItem eventKey={1}>
-      					  <Link to='/consumer/login'>Login as consumer</Link>
-      				</NavItem>
-      				<NavItem eventKey={2}>
-      					<Link to='/vendor/login'>Login as vendor</Link>
-      				</NavItem>
-      			</Nav>
-  		   </Navbar.Collapse>
-	     </Navbar>
+        			 <Nav pullRight>
+        				<NavItem eventKey={1}>
+        					  <Link to='/consumer/login'>Login as consumer</Link>
+        				</NavItem>
+        				<NavItem eventKey={2}>
+        					<Link to='/vendor/login'>Login as vendor</Link>
+        				</NavItem>
+        			</Nav>
+    		   </Navbar.Collapse>
+  	     </Navbar>
+        </div>
       )
     }
 

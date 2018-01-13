@@ -29,6 +29,7 @@ createSocket() {
       connected: () => {},
       received: (data) => {
         addNewNotification(data)
+        this.props.getUserBalance()
       }
     });
   } else if (vendor.user_name) {
@@ -53,8 +54,7 @@ render(){
             {
               notifications.map((notification) =>
                 <Menu.Item>
-                  <Link onClick={() => {notification.isRead ? '' : markAsRead(notification)}} to={`/offers/${notification.offer_id}`}>{notification.isRead ? notification.body : <strong>{notification.body}</strong>}</Link>
-                  {/* <Link to={`/offers/${notification.offer_id}`}>{notification.body}</Link> <input type="checkbox" checked={notification.isRead} onChange={() => markAsRead(notification)} /> */}
+                  <Link onClick={() => {notification.isRead ? '' : markAsRead(notification)}} to={`/offers/${notification.offer_id}`} >{notification.isRead ? notification.body : <strong>{notification.body}</strong>}</Link>
                 </Menu.Item>
 
               )
@@ -81,7 +81,7 @@ render(){
             {
               vendor_notifications.map((notification) =>
                 <Menu.Item>
-                  <Link onClick={() => {notification.isRead ? '' : markVendorNotificationAsRead(notification)}} to={`/vendor/profile`}>{notification.isRead ? notification.body : <strong>{notification.body}</strong>}</Link>
+                  <Link onClick={() => {notification.isRead ? '' : markVendorNotificationAsRead(notification)}} to={`/offer/${notification.offer_id}/completed`}>{notification.isRead ? notification.body : <strong>{notification.body}</strong>}</Link>
                   {/* <Link to={`/offers/${notification.offer_id}`}>{notification.body}</Link> <input type="checkbox" checked={notification.isRead} onChange={() => markAsRead(notification)} /> */}
                 </Menu.Item>
 

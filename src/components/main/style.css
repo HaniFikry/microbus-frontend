@@ -8,14 +8,29 @@
 
 .main h1{
 	color: #fff;
-	font-size: 3em;
+	font-size: 4em;
 	font-weight: bold;
 	font-family: sans-serif;
-	background-image: url("header-background.jpg");
-	background-size: 100%;
-	background-repeat: no-repeat;
-	background-position: center;
-	padding: 220px 0;
+	background-size: cover;
+	padding-top: 17%;
+	text-shadow: 4px 2px 4px black;
+}
+
+.introduction {
+    height:100vh;
+    width: 100%;
+    background: url('https://images.unsplash.com/photo-1493689485253-f07fcbfc731b?auto=format&fit=crop&w=1333&q=80') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+}
+
+.introduction p {
+	color: white;
+	text-shadow: 4px 2px 4px black;
+
 }
 .thumbnail img {
  	height: 180px;
@@ -36,4 +51,8 @@
 }
 .btn-primary a {
 	color: #fff;
+}
+
+.jumbotron {
+	background: none;
 }

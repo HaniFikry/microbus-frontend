@@ -6,7 +6,8 @@ import history from '../history'
 
 const mapStateToProps = function(state) {
   return {
-    singleProduct:  state.vendor.singleProduct
+    singleProduct:  state.vendor.singleProduct,
+    loading: state.offer.loading
   }
 }
 

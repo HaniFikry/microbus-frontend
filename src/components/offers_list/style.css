@@ -5,3 +5,10 @@
 .offerList img {
   height: 380px;
 }
+
+.offerList h2 {
+  background: #d9e0d2;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 0;
+}

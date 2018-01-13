@@ -14,10 +14,12 @@ const mapDispatchToProps = function(dispatch) {
     registerVendor: function(newVendor){
       dispatch(registerNewVendrLoading());
       dispatch(registerNewVendor(newVendor)).then(function(response){
-        dispatch(registerNewVendorSuccess(response));
-        history.push('/');
-      }).catch(function(error){
-        dispatch(registerNewVendorFailure(error))
+        if (response.payload.status < 400) {
+          dispatch(registerNewVendorSuccess(response));
+          history.push('/');
+        } else {
+        dispatch(registerNewVendorFailure(response.payload.data))
+      }
       })
     }
   }

@@ -16,6 +16,7 @@ export default class MakmakStore extends Component {
     return (
       <div>
         <div>
+          <h2> MakMak Store </h2>
         <label>
           <p> Enter the amount of MAKMAKS You want to purchase! </p>
           <input type="number"  name='price' onChange={this.handleChange.bind(this)} required={true}/>

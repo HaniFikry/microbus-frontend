@@ -5,7 +5,7 @@ import history from '../history'
 
 const mapStateToProps = function(state) {
   return {
-    message:  state.microbus.message
+    error:  state.microbus.error
   }
 }
 
@@ -14,10 +14,12 @@ const mapDispatchToProps = function(dispatch) {
     registerConsumer: function(newConsumer){
       dispatch(registerNewUserLoading());
       dispatch(registerNewUser(newConsumer)).then(function(response){
-        dispatch(registerNewUserSuccess(response));
-        history.push('/');
-      }).catch(function(error){
-        dispatch(registerNewUserFailure(error))
+        if (response.payload.status < 400 ) {
+          dispatch(registerNewUserSuccess(response));
+          history.push('/');
+        } else {
+        dispatch(registerNewUserFailure(response.payload.error))
+      }
       })
     }
   }

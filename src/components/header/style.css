@@ -16,4 +16,7 @@
 
 .navbar-inverse {
   margin-bottom: 0;
+  background: #001529;
+  border-radius: 0;
+  outline: none;
 }

@@ -1,16 +1,18 @@
 import {CREATE_OFFER_LOADING, CREATE_OFFER_SUCCESS, CREATE_OFFER_FAILURE,
         FETCH_VENDOR_OFFERS_LOADING, FETCH_VENDOR_OFFERS_SUCCESS, FETCH_VENDOR_OFFERS_FAILURE,
         FETCH_ALL_OFFERS_LOADING, FETCH_ALL_OFFERS_SUCCESS, FETCH_ALL_OFFERS_FAILURE,
-        FETCH_OFFER_DETAILS_LOADING, FETCH_OFFER_DETAILS, FETCH_OFFER_DETAILS_SUCCESS, FETCH_OFFER_DETAILS_FAILURE,
-        FETCH_TOP_OFFERS_LOADING, FETCH_TOP_OFFERS, FETCH_TOP_OFFERS_SUCCESS, FETCH_TOP_OFFERS_FAILURE} from '../actions/offer'
-
+        FETCH_OFFER_DETAILS_LOADING, FETCH_OFFER_DETAILS_SUCCESS, FETCH_OFFER_DETAILS_FAILURE,
+        FETCH_TOP_OFFERS_LOADING, FETCH_TOP_OFFERS_SUCCESS, FETCH_TOP_OFFERS_FAILURE, CLEAR_SUCCESS_MESSAGE} from '../actions/offer'
+import {FETCH_BOUGHT_OFFERS_LOADING, FETCH_BOUGHT_OFFERS_SUCCESS, FETCH_BOUGHT_OFFERS_FAILURE} from '../actions/buy_offer'
 const INITIAL_STATE = {
   offer: {},
-  error: null,
+  message: null,
   loading: false,
   offers : [],
   offerDetails: {},
-  topOffers: []
+  topOffers: [],
+  boughtOffers: [],
+  offerBuyers: []
 }
 
 export default function(currentState = INITIAL_STATE, action) {
@@ -24,7 +26,8 @@ export default function(currentState = INITIAL_STATE, action) {
       return {
         ...currentState,
         loading: false,
-        offer: action.offer
+        offer: action.offer,
+        message: 'Offer created successfully'
       }
     case CREATE_OFFER_FAILURE:
       return {
@@ -75,7 +78,8 @@ export default function(currentState = INITIAL_STATE, action) {
       return {
         ...currentState,
         loading: false,
-        offerDetails: action.offer
+        offerDetails: action.offer,
+        offerBuyers: action.offer.consumers
       }
     case FETCH_OFFER_DETAILS_FAILURE:
       return {
@@ -99,6 +103,28 @@ export default function(currentState = INITIAL_STATE, action) {
         ...currentState,
         loading: false,
         error: action.error
+      }
+    case FETCH_BOUGHT_OFFERS_LOADING:
+      return {
+        ...currentState,
+        loading:true
+      }
+    case FETCH_BOUGHT_OFFERS_SUCCESS:
+      return {
+        ...currentState,
+        boughtOffers: action.boughtOffers,
+        loading: false
+      }
+    case FETCH_BOUGHT_OFFERS_FAILURE:
+      return {
+        ...currentState,
+        loading: false,
+        error: action.error
+      }
+    case CLEAR_SUCCESS_MESSAGE:
+      return {
+        ...currentState,
+        message: null
       }
 
 

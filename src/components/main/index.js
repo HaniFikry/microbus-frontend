@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './style.css'
 import {Link} from 'react-router-dom'
-import {  Image, Grid, Col, Row, Thumbnail, Carousel, Button } from 'react-bootstrap';
+import {  Image, Grid, Col, Row, Thumbnail, Carousel, Button, Jumbotron } from 'react-bootstrap';
 
 // import TopProducts from '../../containers/TopProductsContainer'
 
@@ -17,34 +17,44 @@ export default class Main extends Component {
 
 	  return(
 	  	<div className="main">
-		  		<h1>Microbus.. The Power of US!</h1>
+				<div className="introduction">
+					<Jumbotron>
+							<h1>Microbus, The power of US!</h1>
+							<p>
+								Microbus is a group buying platform where you and your friends can enjoy great prices if you buy our
+								offers together. What are you waiting for!! Join our Microbus now!
+							</p>
+							<p>
+								<Link to="offers"><Button bsStyle="primary">Explore Great Offers</Button></Link>
+							</p>
+					</Jumbotron>
+				</div>
 		  	<div className="topOffers">
 			  	<h2>Most Purchased Offers</h2>
 		  					<Carousel>
-
-		  					    	{
+								{
 				    		topOffers.map((offer) =>
 				    		{
-				    			if (offer.status === 'progress'){
-					    			return(
-												<Carousel.Item>
-							    						<Thumbnail  src={offer.thumbnail} height={500}>
+				    		if (offer.status === 'progress'){
+					    		return(
+										<Carousel.Item>
+			    						<Thumbnail  src={offer.thumbnail} height={500}>
 
-								    						<h3>{offer.name}</h3>
-								    						<Button bsStyle="primary"><Link to={`/offers/${offer.id}`}>Buy now</Link></Button>
-								    						<p>Price: {offer.price}</p>
-							    						</Thumbnail>
-												</Carousel.Item>
+				    						<h3>{offer.name}</h3>
+				    						<Button bsStyle="primary"><Link to={`/offers/${offer.id}`}>Buy now</Link></Button>
+				    						<p>Price: {offer.price}</p>
+			    						</Thumbnail>
+										</Carousel.Item>
 					    			)
 				    			}
-				    		})
-				  	  }
-							</Carousel>
-				  <Grid>
-				  	<Row>{}</Row>
-				  </Grid>
-		    </div>
-		</div>
+												    		})
+												  	  }
+															</Carousel>
+												  <Grid>
+												  	<Row>{}</Row>
+												  </Grid>
+										    </div>
+				</div>
 	  )
 	}
 

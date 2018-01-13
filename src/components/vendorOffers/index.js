@@ -1,17 +1,26 @@
 import React, {Component} from 'react';
 import './style.css'
 import {ProgressBar} from 'react-bootstrap'
+import {Alert} from 'antd'
+
 
 
 export default class VendorOffers extends Component {
   componentWillMount(){
     this.props.fetchVendorCurrentOffers()
   }
+  onClose(){
+    this.props.clearMessage()
+  }
   render(){
-    const {offers} = this.props;
+    const {offers, message} = this.props;
     return (
       <div >
-
+        {
+        message ?
+          <Alert message={message} type="success" showIcon   closable onClose={this.onClose.bind(this)}/>
+        : ''
+        }
         {
           offers.map((offer) =>
             <div className='clearfix offer_card'>

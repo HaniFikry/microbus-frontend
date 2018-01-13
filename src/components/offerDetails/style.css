@@ -10,3 +10,8 @@
   text-transform: uppercase;
   margin-top: 20px;
 }
+
+offerDetails img {
+  max-height: 400px;
+  max-width: 380px;
+}

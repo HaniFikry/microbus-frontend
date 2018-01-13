@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {fetchUserNotificationsLoading, fetchUserNotifications, fetchUserNotificationsSuccess, fetchUserNotificationsFailure, markNotificationReadLoading, markNotificationRead, markNotificationReadSuccess, markNotificationReadFailure, addNotification} from '../actions/notifications'
 import {fetchVendorNotificationsLoading, fetchVendorNotifications, fetchVendorNotificationsSuccess, fetchVendorNotificationsFailure, markVendorNotificationRead, markVendorNotificationReadLoading, markVendorNotificationReadSuccess, markVendorNotificationReadFailure, addVendorNotification} from '../actions/vendor_notifications'
 import {updateVendorBalance, updateVendorBalanceSuccess} from '../actions/vendor'
+import {updateUserBalance, updateUserBalanceSuccess} from '../actions/consumer'
 const mapStateToProps = function(state) {
   return {
     notifications: state.notifications.notifications,
@@ -64,7 +65,13 @@ const mapDispatchToProps = function(dispatch) {
           dispatch(updateVendorBalanceSuccess(response))
         }
       })
-  }
+  }, getUserBalance : function(){
+    dispatch(updateUserBalance()).then(function(response){
+      if (response.payload.status < 400) {
+        dispatch(updateUserBalanceSuccess(response))
+      }
+    })
+}
 }
 }
 

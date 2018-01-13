@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import {fetchWishListLoading, fetchWishList, fetchWishListSuccess, fetchWishListFailure, deleteWishlistItemLoading, deleteWishlistItem, deleteWishlistItemSuccess, deleteWishlistItemFailure} from '../actions/consumer'
-import consumer_profile from '../components/consumer_profile'
+import ConsumerWishlist from '../components/consumer_wishlist'
 const mapStateToProps = function(state) {
   return {
   wishlists: state.microbus.wishlist,
@@ -32,4 +32,4 @@ const mapDispatchToProps = function(dispatch){
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(consumer_profile);
+export default connect(mapStateToProps, mapDispatchToProps)(ConsumerWishlist);

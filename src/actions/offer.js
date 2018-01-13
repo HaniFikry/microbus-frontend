@@ -26,6 +26,7 @@ export const FETCH_TOP_OFFERS = 'FETCH_TOP_OFFERS'
 export const FETCH_TOP_OFFERS_SUCCESS = 'FETCH_TOP_OFFERS_SUCCESS'
 export const FETCH_TOP_OFFERS_FAILURE = 'FETCH_TOP_OFFERS_FAILURE'
 
+export const CLEAR_SUCCESS_MESSAGE = 'CLEAR_SUCCESS_MESSAGE'
 
 export function createOfferLoading(){
   return {
@@ -163,5 +164,11 @@ export function fetchTopOffersFailure(error){
   return {
     type: FETCH_TOP_OFFERS_FAILURE,
     error
+  }
+}
+
+export function clearSuccessMessage(){
+  return {
+    type: CLEAR_SUCCESS_MESSAGE
   }
 }
