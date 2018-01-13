@@ -13,6 +13,7 @@ export default class OffersList extends Component {
     const {offers} = this.props;
     return (
       <div className='offerList'>
+          <h1>Ongoing Offers</h1>
           <Grid>
           <Row>
         {
@@ -20,7 +21,7 @@ export default class OffersList extends Component {
           { 
             if (offer.status === 'progress') {
               return (
-                <Col xs={6} md={4}>
+                <Col xs={12} md={4}>
                   <Thumbnail src={offer.thumbnail} alt="242x200">
                     <h3>{offer.name}</h3>
                     <Button bsStyle="primary"><Link to={`/offers/${offer.id}`} >Buy now</Link></Button>

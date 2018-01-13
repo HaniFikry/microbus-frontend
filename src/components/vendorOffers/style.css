@@ -1,18 +1,35 @@
+.ant-layout{
+  background-color: #FFF;
+}
 .offer_card {
   background: #f4f5f7;
   margin: 10px auto;
   padding: 20px;
-  width: 800px;
-  height: 200px;
-  position: relative;
+  width: 98%;
+  text-align: center;
+  border-radius: 5px;
+  transition: all .2s ease-in-out;
+}
+.offer_card:hover{
+  transform: scale(1.03);
 }
 
 .offer_card img {
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  height: 150px;
-  width: 150px;
+  
+ 
+  width:10%;
+
+}
+.offer_card h1 {
+  text-transform: capitalize;
+}
+.offer_card h2{
+  text-align: center !important;
+  text-transform: capitalize;
+
+}
+.offer_card p{
+  text-align: center;
 }
 
 .progress {
@@ -22,8 +39,19 @@
 
 .offer_card h2 {
   text-align: right;
+  font-size: 1em;
 }
 
 #offers_header {
     margin-left: -200px;
+}
+
+@media (max-width: 700px){
+
+  .offer_card img {
+    width:30%;
+  }
+  .progress {
+    width: 200px;
+  }
 }
