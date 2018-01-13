@@ -40,6 +40,10 @@ export const DELETE_WISHLIST_ITEM_FAILURE = 'DELETE_WISHLIST_ITEM_FAILURE'
 
 export const SAVE_CURRENT_LOCATION = 'SAVE_CURRENT_LOCATION'
 
+
+export const UPDATE_USER_BALANCE = 'UPDATE_USER_BALANCE'
+export const UPDATE_USER_BALANCE_SUCCESS = 'UPDATE_USER_BALANCE_SUCCESS'
+
 export function registerNewUserLoading(){
   return {
     type: REGISTER_NEW_USER_LOADING
@@ -224,5 +228,18 @@ export function saveCurrentLocation(url) {
   return {
   type: SAVE_CURRENT_LOCATION,
   url: url
+  }
+}
+export function updateUserBalance(){
+  return {
+  type: UPDATE_USER_BALANCE,
+  payload: Axios.get(currentUserApi)
+  }
+}
+
+export function updateUserBalanceSuccess(response){
+  return {
+  type: UPDATE_USER_BALANCE_SUCCESS,
+  amount: response.payload.data.user_balance
   }
 }

@@ -1,0 +1,11 @@
+.buyer-list li {
+  text-align: left;
+  font-size: 16px;
+}
+
+#seller-message {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 20px;
+}

@@ -19,33 +19,34 @@ export default class Main extends Component {
 
 	  return(
 	  	<div className="main">
-			<Jumbotron>
-				<h1>Hello, world!</h1>
-				<p>
-					This is a simple hero unit, a simple jumbotron-style component for calling
-					extra attention to featured content or information.
-				</p>
-				<p>
-					<Button bsStyle="primary">Learn more</Button>
-				</p>
-			</Jumbotron>		  	
-			<div className="topOffers">
+				<div className="introduction">
+					<Jumbotron>
+							<h1>Microbus, The power of US!</h1>
+							<p>
+								Microbus is a group buying platform where you and your friends can enjoy great prices if you buy our
+								offers together. What are you waiting for!! Join our Microbus now!
+							</p>
+							<p>
+								<Link to="offers"><Button bsStyle="primary">Explore Great Offers</Button></Link>
+							</p>
+					</Jumbotron>
+				</div>
+		  	<div className="topOffers">
 			  	<h2>Most Purchased Offers</h2>
 		  					<Carousel>
-
-		  					    	{
+								{
 				    		topOffers.map((offer) =>
 				    		{
-				    			if (offer.status === 'progress'){
-					    			return(
-												<Carousel.Item>
-							    						<Thumbnail  src={offer.thumbnail} height={500}>
+				    		if (offer.status === 'progress'){
+					    		return(
+										<Carousel.Item>
+			    						<Thumbnail  src={offer.thumbnail} height={500}>
 
-								    						<h3>{offer.name}</h3>
-								    						<Button bsStyle="primary"><Link to={`/offers/${offer.id}`}>Buy now</Link></Button>
-								    						<p>Price: {offer.price}</p>
-							    						</Thumbnail>
-												</Carousel.Item>
+				    						<h3>{offer.name}</h3>
+				    						<Button bsStyle="primary"><Link to={`/offers/${offer.id}`}>Buy now</Link></Button>
+				    						<p>Price: {offer.price}</p>
+			    						</Thumbnail>
+										</Carousel.Item>
 					    			)
 				    			}
 				    		})

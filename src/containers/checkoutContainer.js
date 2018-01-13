@@ -1,11 +1,12 @@
 import {connect} from 'react-redux'
-import {chargeMakmaksLoading, chargeMakmaks, chargeMakmaksSuccess, chargeMakmaksFailure} from '../actions/makmaks'
+import {chargeMakmaksLoading, chargeMakmaks, chargeMakmaksSuccess, chargeMakmaksFailure, clearChargeSuccessMessage} from '../actions/makmaks'
 import Checkout from '../Checkout'
 import history from '../history'
 
 const mapStateToProps = function(state){
   return {
-  url: state.microbus.prevUrl
+  url: state.microbus.prevUrl,
+  message: state.microbus.message
   }
 }
 
@@ -18,7 +19,10 @@ const mapDispatchToProps = function(dispatch){
       dispatch(chargeMakmaks(amount)).then(function(response){
         if (response.payload.status < 400 ) {
           dispatch(chargeMakmaksSuccess(response))
-          history.push(url)
+          setTimeout(() => {
+          dispatch(clearChargeSuccessMessage())
+          history.push(url)  
+        }, 5000)
         } else {
           dispatch(chargeMakmaksFailure(response.payload.error))
         }

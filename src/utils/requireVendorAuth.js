@@ -9,7 +9,7 @@ class AuthenticateVendor extends Component {
       if(!this.props.vendor.user_name){
         history.push('/vendor/login')
       }
-    }, 500)
+    }, 1000)
   }
   render(){
     return(

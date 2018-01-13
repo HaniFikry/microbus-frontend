@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Axios from 'axios'
+import { Spin} from 'antd';
+import './style.css'
 
 export default class OfferForm extends Component {
   constructor(){
@@ -55,10 +57,17 @@ export default class OfferForm extends Component {
     }
 
   render(){
-    const { singleProduct, createNewOffer } = this.props;
+    const { singleProduct, createNewOffer, loading } = this.props;
+    if(loading){
+            return (
+                <Spin />
+            )
+    } else {
     return (
+
       <div>
-        <h3> OFFER FOR ITEM: {singleProduct.product_name} </h3>
+        <h2 className="secondary-header"> New offer! </h2>
+        <h3 className="offer-for"> OFFER FOR ITEM: {singleProduct.product_name} </h3>
         {this.props.match.params.id}
         <div>
         <form onSubmit={(event) => {event.preventDefault(); this.handleSubmit(event)}}>
@@ -104,5 +113,6 @@ export default class OfferForm extends Component {
         </div>
       </div>
     )
+  }
   }
 }

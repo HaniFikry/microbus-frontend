@@ -6,10 +6,10 @@ export default function(ComposedComponent){
 class Authenticate extends Component {
   componentWillMount(){
       setTimeout(() => {
-        if(!this.props.user.user_name && !this.props.vendor.user_name){
+        if(!this.props.user.user_name){
           history.push('/consumer/login')
         }
-      }, 500)
+      }, 1000)
 
   }
   render(){
@@ -21,8 +21,7 @@ class Authenticate extends Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.microbus.user,
-    vendor: state.vendor.user
+    user: state.microbus.user
   }
 }
   return connect(mapStateToProps)(Authenticate);

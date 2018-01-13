@@ -1,10 +1,12 @@
 import {connect} from 'react-redux'
-import {fetchVendorOffersLoading, fetchVendorOffers, fetchVendorOffersSuccess, fetchVendorOffersFailure} from '../actions/offer'
+import {fetchVendorOffersLoading, fetchVendorOffers, fetchVendorOffersSuccess, fetchVendorOffersFailure, clearSuccessMessage} from '../actions/offer'
 import VendorOffers from '../components/vendorOffers'
 
 const mapStateToProps = function(state) {
     return {
-      offers : state.offer.offers
+      offers : state.offer.offers,
+      message: state.offer.message
+
     }
 }
 
@@ -19,6 +21,8 @@ const mapDispatchToProps = function(dispatch){
           dispatch(fetchVendorOffersFailure(response.payload.error))
         }
       })
+    }, clearMessage : function(){
+      dispatch(clearSuccessMessage())
     }
   }
 }

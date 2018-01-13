@@ -31,7 +31,7 @@ export const FETCH_LATEST_OFFERS = 'FETCH_LATEST_OFFERS'
 export const FETCH_LATEST_OFFERS_SUCCESS = 'FETCH_LATEST_OFFERS_SUCCESS'
 export const FETCH_LATEST_OFFERS_FAILURE = 'FETCH_LATEST_OFFERS_FAILURE'
 
-
+export const CLEAR_SUCCESS_MESSAGE = 'CLEAR_SUCCESS_MESSAGE'
 
 export function createOfferLoading(){
   return {
@@ -198,5 +198,11 @@ export function fetchLatestOffersFailure(error){
   return {
     type: FETCH_LATEST_OFFERS_FAILURE,
     error
+  }
+}
+
+export function clearSuccessMessage(){
+  return {
+    type: CLEAR_SUCCESS_MESSAGE
   }
 }

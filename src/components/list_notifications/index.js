@@ -35,7 +35,7 @@ export default class ListNotifications extends Component {
         <ul>
         {
           allVendorNotifications.map((notification) =>
-            <li><Link to={`/offers/${notification.offer_id}`}>{notification.body}</Link></li>
+            <li><Link to={`/offer/${notification.offer_id}/completed`}>{notification.body}</Link></li>
           )
         }
       </ul>
