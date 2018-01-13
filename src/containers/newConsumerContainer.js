@@ -1,11 +1,12 @@
 import New from '../components/newconsumer'
 import {connect} from 'react-redux';
-import {registerNewUserLoading, registerNewUser, registerNewUserSuccess, registerNewUserFailure} from '../actions/consumer'
+import {registerNewUserLoading, registerNewUser, registerNewUserSuccess, registerNewUserFailure, clearConsumerMessages} from '../actions/consumer'
 import history from '../history'
 
 const mapStateToProps = function(state) {
   return {
-    error:  state.microbus.error
+    error:  state.microbus.error,
+    message: state.microbus.message
   }
 }
 
@@ -16,11 +17,15 @@ const mapDispatchToProps = function(dispatch) {
       dispatch(registerNewUser(newConsumer)).then(function(response){
         if (response.payload.status < 400 ) {
           dispatch(registerNewUserSuccess(response));
-          history.push('/');
+          setTimeout(() => {
+          history.push('/consumer/login');
+          }, 5000)
         } else {
-        dispatch(registerNewUserFailure(response.payload.error))
+        dispatch(registerNewUserFailure(response.payload.response.data.errors))
       }
       })
+    }, clearRegistrationMessages : function(){
+      dispatch(clearConsumerMessages());
     }
   }
 }

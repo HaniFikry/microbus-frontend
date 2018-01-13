@@ -55,3 +55,8 @@
     width: 200px;
   }
 }
+
+.btn-toolbar {
+    width: 400px;
+    margin: 0 auto;
+}

@@ -3,7 +3,7 @@ import {CREATE_OFFER_LOADING, CREATE_OFFER_SUCCESS, CREATE_OFFER_FAILURE,
         FETCH_ALL_OFFERS_LOADING, FETCH_ALL_OFFERS_SUCCESS, FETCH_ALL_OFFERS_FAILURE,
         FETCH_OFFER_DETAILS_LOADING, FETCH_OFFER_DETAILS, FETCH_OFFER_DETAILS_SUCCESS, FETCH_OFFER_DETAILS_FAILURE,
         FETCH_TOP_OFFERS_LOADING, FETCH_TOP_OFFERS, FETCH_TOP_OFFERS_SUCCESS, FETCH_TOP_OFFERS_FAILURE,
-        FETCH_LATEST_OFFERS_LOADING, FETCH_LATEST_OFFERS, FETCH_LATEST_OFFERS_SUCCESS, FETCH_LATEST_OFFERS_FAILURE, CLEAR_SUCCESS_MESSAGE} from '../actions/offer'
+        FETCH_LATEST_OFFERS_LOADING, FETCH_LATEST_OFFERS, FETCH_LATEST_OFFERS_SUCCESS, FETCH_LATEST_OFFERS_FAILURE, CLEAR_SUCCESS_MESSAGE, DELETE_OFFER_ERRORS} from '../actions/offer'
         import {FETCH_BOUGHT_OFFERS_LOADING, FETCH_BOUGHT_OFFERS_SUCCESS, FETCH_BOUGHT_OFFERS_FAILURE} from '../actions/buy_offer'
 
 
@@ -16,7 +16,8 @@ const INITIAL_STATE = {
   topOffers: [],
   LatestOffers: [],
   boughtOffers: [],
-  offerBuyers: []
+  offerBuyers: [],
+  error: ''
 }
 
 export default function(currentState = INITIAL_STATE, action) {
@@ -149,6 +150,11 @@ export default function(currentState = INITIAL_STATE, action) {
       return {
         ...currentState,
         message: null
+      }
+    case DELETE_OFFER_ERRORS:
+      return {
+        ...currentState,
+        error: null
       }
 
 

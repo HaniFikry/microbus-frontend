@@ -16,9 +16,10 @@ export default class LatestOffers extends Component {
 
 	  return(
 	  	<div>
-	  			<h2>Latest Offers</h2>				
+	  			<h2>Latest Offers</h2>
 				  <Grid>
-				  	<Row>{
+				  	<Row>
+							{
 				  			latestOffers.map((offer) =>
 				{
 					if (offer.status === 'progress'){
@@ -35,7 +36,8 @@ export default class LatestOffers extends Component {
 						)
 					}
 				})
-				  	}</Row>
+				  	}
+					</Row>
 				  </Grid>
 		</div>
 	  )

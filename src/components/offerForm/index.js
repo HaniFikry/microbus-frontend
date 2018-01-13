@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Axios from 'axios'
-import { Spin} from 'antd';
+import { Spin, Alert} from 'antd';
 import './style.css'
 
 export default class OfferForm extends Component {
@@ -20,6 +20,7 @@ export default class OfferForm extends Component {
   componentWillMount(){
     this.props.fetchSelectedProduct(this.props.match.params.id),
     this.setState({vendor_product_id: this.props.match.params.id})
+    this.props.deleteOfferFormErrors();
   }
 
   handleChange(event) {
@@ -57,16 +58,25 @@ export default class OfferForm extends Component {
     }
 
   render(){
-    const { singleProduct, createNewOffer, loading } = this.props;
+    const { singleProduct, createNewOffer, loading, error } = this.props;
     if(loading){
             return (
                 <Spin />
             )
     } else {
     return (
-
       <div>
         <h2 className="secondary-header"> New offer! </h2>
+        {
+          error ?
+          error.map((singleError) =>
+          <Alert
+             description={singleError}
+             type="error"
+             closable
+          />
+        ) : null
+       }
         <h3 className="offer-for"> OFFER FOR ITEM: {singleProduct.product_name} </h3>
         {this.props.match.params.id}
         <div>

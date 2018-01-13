@@ -1,6 +1,6 @@
 import Login from '../components/login'
 import {connect} from 'react-redux';
-import {userLoginLoading, userLogin, userLoginSuccess, userLoginFailure} from '../actions/consumer'
+import {userLoginLoading, userLogin, userLoginSuccess, userLoginFailure, clearConsumerMessages} from '../actions/consumer'
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import history from '../history'
 
@@ -26,6 +26,8 @@ const mapDispatchToProps = function(dispatch) {
         dispatch(userLoginFailure(response.payload.response.data.error))
       }
     })
+  }, clearErrorMessages : function(){
+    dispatch(clearConsumerMessages());
   }
 }
 }

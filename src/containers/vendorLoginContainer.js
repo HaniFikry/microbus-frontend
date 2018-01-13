@@ -1,6 +1,6 @@
 import VendorLogin from '../components/vendorlogin'
 import {connect} from 'react-redux';
-import {vendorLoginLoading, vendorLogin, vendorLoginSuccess, vendorLoginFailure} from '../actions/vendor'
+import {vendorLoginLoading, vendorLogin, vendorLoginSuccess, vendorLoginFailure, clearVendorMessages} from '../actions/vendor'
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import history from '../history'
 
@@ -27,6 +27,8 @@ const mapDispatchToProps = function(dispatch) {
         dispatch(vendorLoginFailure(response.payload.response.data.error))
       }
     })
+  }, clearErrorMessages : function(){
+    dispatch(clearVendorMessages());
   }
 }
 }

@@ -24,12 +24,15 @@ export default class VendorLogin extends Component {
     if (localStorage.jwtToken){
       history.push('/')
     }
+    this.props.clearErrorMessages();
   }
 
   render() {
     const {loginVendor, error} = this.props;
     return(
       <div>
+        <h2 className="secondary-header"> Vendor Login </h2>
+
         {
         error ?
         <Alert

@@ -33,6 +33,8 @@ export const FETCH_LATEST_OFFERS_FAILURE = 'FETCH_LATEST_OFFERS_FAILURE'
 
 export const CLEAR_SUCCESS_MESSAGE = 'CLEAR_SUCCESS_MESSAGE'
 
+export const DELETE_OFFER_ERRORS = 'DELETE_OFFER_ERRORS'
+
 export function createOfferLoading(){
   return {
     type: CREATE_OFFER_LOADING
@@ -66,10 +68,11 @@ export function fetchVendorOffersLoading(){
   }
 }
 
-export function fetchVendorOffers(){
+export function fetchVendorOffers(status){
+  console.log(status)
   return {
     type: FETCH_VENDOR_OFFERS,
-    payload: Axios.get(vendorOffersApi)
+    payload: Axios.get(vendorOffersApi(status))
   }
 }
 
@@ -204,5 +207,11 @@ export function fetchLatestOffersFailure(error){
 export function clearSuccessMessage(){
   return {
     type: CLEAR_SUCCESS_MESSAGE
+  }
+}
+
+export function deleteOfferErrors(){
+  return {
+    type: DELETE_OFFER_ERRORS
   }
 }

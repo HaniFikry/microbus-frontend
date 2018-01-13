@@ -1,13 +1,14 @@
 import offerForm from '../components/offerForm'
 import {connect} from 'react-redux';
 import {fetchProductLoading, fetchProduct, fetchProductSuccess, fetchProductFailure} from '../actions/vendor'
-import {createOfferLoading, createOffer, createOfferSuccess, createOfferFailure} from '../actions/offer'
+import {createOfferLoading, createOffer, createOfferSuccess, createOfferFailure, deleteOfferErrors} from '../actions/offer'
 import history from '../history'
 
 const mapStateToProps = function(state) {
   return {
     singleProduct:  state.vendor.singleProduct,
-    loading: state.offer.loading
+    loading: state.offer.loading,
+    error: state.offer.error
   }
 }
 
@@ -29,9 +30,11 @@ const mapDispatchToProps = function(dispatch) {
           dispatch(createOfferSuccess(response));
           history.push('/vendor/profile')
         } else {
-          dispatch(createOfferFailure(response.payload.error))
+          dispatch(createOfferFailure(response.payload.response.data))
         }
       })
+    }, deleteOfferFormErrors : function(){
+      dispatch(deleteOfferErrors())
     }
   }
 }

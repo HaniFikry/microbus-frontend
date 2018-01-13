@@ -44,6 +44,8 @@ export const SAVE_CURRENT_LOCATION = 'SAVE_CURRENT_LOCATION'
 export const UPDATE_USER_BALANCE = 'UPDATE_USER_BALANCE'
 export const UPDATE_USER_BALANCE_SUCCESS = 'UPDATE_USER_BALANCE_SUCCESS'
 
+export const CLEAR_CONSUMER_MESSAGES = 'CLEAR_CONSUMER_MESSAGES'
+
 export function registerNewUserLoading(){
   return {
     type: REGISTER_NEW_USER_LOADING
@@ -241,5 +243,11 @@ export function updateUserBalanceSuccess(response){
   return {
   type: UPDATE_USER_BALANCE_SUCCESS,
   amount: response.payload.data.user_balance
+  }
+}
+
+export function clearConsumerMessages(){
+  return {
+  type: CLEAR_CONSUMER_MESSAGES
   }
 }

@@ -1,5 +1,7 @@
 import React , {Component} from 'react';
-import history from '../../history'
+import history from '../../history';
+import {Alert} from 'antd';
+
 
 
 export default class NewVendor extends Component {
@@ -23,12 +25,34 @@ export default class NewVendor extends Component {
     if (localStorage.jwtToken){
       history.push('/')
     }
+    this.props.clearRegistrationMessages()
   }
 
   render(){
-    const {registerVendor} = this.props;
+    const {registerVendor, error, message} = this.props;
     return(
       <div>
+        <h2 className="secondary-header"> Register As Vendor </h2>
+        {
+        message ?
+          <Alert
+             description={message}
+             type="success"
+             closable
+          />
+          :
+        error ?
+        error.map((singleError) =>
+        <Alert
+           description={singleError}
+           type="error"
+           closable
+        />
+      )
+      : null
+
+      }
+
       <form onSubmit={(event) => {event.preventDefault(); registerVendor(this.state)}}>
 
           <div>

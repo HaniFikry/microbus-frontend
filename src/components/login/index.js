@@ -17,6 +17,7 @@ export default class Login extends Component {
     if (localStorage.jwtToken){
       history.push('/')
     }
+    this.props.clearErrorMessages();
   }
 
   handleChange(event) {
@@ -33,6 +34,8 @@ export default class Login extends Component {
     const {loginConsumer, error} = this.props;
     return(
       <div>
+        <h2 className="secondary-header"> Consumer Login</h2>
+
         {
         error ?
         <Alert

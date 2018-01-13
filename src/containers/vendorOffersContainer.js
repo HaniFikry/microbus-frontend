@@ -12,9 +12,9 @@ const mapStateToProps = function(state) {
 
 const mapDispatchToProps = function(dispatch){
   return {
-    fetchVendorCurrentOffers : function(){
+    fetchVendorCurrentOffers : function(status){
       dispatch(fetchVendorOffersLoading())
-      dispatch(fetchVendorOffers()).then(function(response){
+      dispatch(fetchVendorOffers(status)).then(function(response){
         if (response.payload.status < 400 ) {
           dispatch(fetchVendorOffersSuccess(response))
         } else {

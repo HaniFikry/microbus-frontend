@@ -45,6 +45,8 @@ export const UPDATE_VENDOR_BALANCE_SUCCESS = 'UPDATE_VENDOR_BALANCE_SUCCESS'
 
 export const VENDOR_LOGOUT = 'VENDOR_LOGOUT'
 
+export const CLEAR_VENDOR_MESSAGES = 'CLEAR_VENDOR_MESSAGES'
+
 export function registerNewVendrLoading(){
   return {
     type: REGISTER_NEW_VENDOR_LOADING
@@ -265,5 +267,11 @@ export function updateVendorBalanceSuccess(response){
   return {
   type: UPDATE_VENDOR_BALANCE_SUCCESS,
   amount: response.payload.data.user_balance
+  }
+}
+
+export function clearVendorMessages(){
+  return {
+  type: CLEAR_VENDOR_MESSAGES
   }
 }
