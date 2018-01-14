@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
-import {  Image, Grid, Col, Row, Thumbnail, Button } from 'react-bootstrap';
+import { Grid, Col, Row, Thumbnail, Button } from 'react-bootstrap';
 
 // import TopProducts from '../../containers/TopProductsContainer'
 

@@ -11,7 +11,7 @@ export default class VendorProducts extends Component {
   }
 
   render(){
-    const {product_lists, vendor, deleteProduct} = this.props;
+    const {product_lists, deleteProduct} = this.props;
     return(
       <div className='product_catalogue'>
         <h1> Product Catalogue </h1>

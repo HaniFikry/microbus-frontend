@@ -54,7 +54,7 @@ export default class VendorOffers extends Component {
                 offers.map((offer) =>
                   <Col md={12}>
                     <div className='clearfix offer_card'>
-                      <img src={offer.thumbnail} />
+                      <img src={offer.thumbnail} alt="offer" />
                       <h1> {offer.name}  </h1>
                       <h2>Status: {offer.status} </h2>
                       <div className="progress"><ProgressBar active now={offer.progress} /></div>

@@ -11,7 +11,6 @@ const INITIAL_STATE = {
   user: {},
   wishlist: [],
   error: null,
-  user: {},
   prevUrl: ''
 }
 
@@ -126,20 +125,20 @@ export default function(currentState = INITIAL_STATE, action) {
       }
       case DELETE_WISHLIST_ITEM_LOADING:
       var newWishlist = currentState.wishlist.map(item => {
-      if (item.id == action.id) item.loading = true;
+      if (item.id === action.id) item.loading = true;
       return item;
       })
       return {...currentState, wishlist: newWishlist}
 
       case DELETE_WISHLIST_ITEM_SUCCESS:
-      var newWishlist = currentState.wishlist.filter(item => {
+      newWishlist = currentState.wishlist.filter(item => {
       return item.id !== action.id
       })
       return {...currentState, wishlist: newWishlist}
 
       case DELETE_WISHLIST_ITEM_FAILURE:
-      var newWishlist = currentState.wishlist.map(item => {
-      if (item.id == action.id) {item.loading = false; item.error = action.error}
+      newWishlist = currentState.wishlist.map(item => {
+      if (item.id === action.id) {item.loading = false; item.error = action.error}
       return item;
       })
       return {...currentState, wishlist: newWishlist}

@@ -1,13 +1,9 @@
 import React , {Component} from 'react';
-<<<<<<< HEAD
 import history from '../../history';
 import {Alert} from 'antd';
-
-
-=======
-import history from '../../history'
 import './style.css'
->>>>>>> bd48e4b6a7b5f209b1d3ce2bbead53337ed4b47a
+
+
 
 export default class New extends Component {
   constructor(){
@@ -38,7 +34,6 @@ export default class New extends Component {
   render(){
     const {registerConsumer, error, message} = this.props;
     return(
-<<<<<<< HEAD
       <div>
         <h2 className="secondary-header"> Register As Consumer </h2>
         {
@@ -61,9 +56,8 @@ export default class New extends Component {
 
       }
 
-=======
+
       <div className="register">
->>>>>>> bd48e4b6a7b5f209b1d3ce2bbead53337ed4b47a
         <form onSubmit={(event) => {event.preventDefault(); registerConsumer(this.state)}}>
           <div>
             <label>
@@ -80,18 +74,19 @@ export default class New extends Component {
           <div>
             <label>
               <p> Password: </p>
-              <input type="password" value={this.state.password} name='password' onChange={this.handleChange.bind(this)} required={true}/>
+              <input type="password" value={this.state.password} name='password' onChange={this.handleChange.bind(this)} required={true} minlength="6"/>
             </label>
           </div>
           <div>
             <label>
               <p> Confirm password: </p>
-              <input type="password" value={this.state.password_confirmation}  name='password_confirmation' onChange={this.handleChange.bind(this)}/>
+              <input type="password" value={this.state.password_confirmation}  name='password_confirmation' onChange={this.handleChange.bind(this)} minlength="6" />
             </label>
           </div>
           <input className="submit" type="submit" value="Register"  />
         </form>
       </div>
+    </div>
     )
   }
 }

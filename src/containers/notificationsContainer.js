@@ -8,7 +8,7 @@ const mapStateToProps = function(state) {
   return {
     notifications: state.notifications.notifications,
     unreadCount: state.notifications.unreadCount,
-    user: state.microbus.user,
+    user: state.consumer.user,
     vendor: state.vendor.user,
     vendor_notifications: state.vendor_notifications.vendor_notifications,
     vendor_unreadCount: state.vendor_notifications.vendor_unreadCount

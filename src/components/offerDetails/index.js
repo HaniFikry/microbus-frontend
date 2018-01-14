@@ -24,7 +24,7 @@ export default class OfferDetails extends Component {
           <p> Sold by : {offerDetails.seller} </p>
           <h1>{offerDetails.name}</h1>
           <h3>{offerDetails.status}</h3>
-          <img src={offerDetails.thumbnail} />
+          <img src={offerDetails.thumbnail} alt ="offer"/>
           <p> {offerDetails.description} </p>
           <h3> {offerDetails.price} MakMak</h3>
            <ProgressBar active now={offerDetails.progress} label={`${offerDetails.buying_consumers} of ${offerDetails.target_count} users bought this offer`}/>
@@ -37,7 +37,7 @@ export default class OfferDetails extends Component {
         <p> Sold by : {offerDetails.seller} </p>
         <h1>{offerDetails.name}</h1>
         <p><small> {offerDetails.product_name} </small></p>
-        <img src={offerDetails.thumbnail} />
+        <img src={offerDetails.thumbnail} alt="offer" />
         <p> {offerDetails.description} </p>
         <h3> {offerDetails.price} MakMak</h3>
 
@@ -65,7 +65,7 @@ export default class OfferDetails extends Component {
         <p> Sold by : {offerDetails.seller} </p>
         <h1>{offerDetails.name}</h1>
         <p><small> {offerDetails.product_name} </small></p>
-        <img src={offerDetails.thumbnail} />
+        <img src={offerDetails.thumbnail} alt="offer" />
         <p> {offerDetails.description} </p>
         <h3> {offerDetails.price} MakMak</h3>
         <h4><Countdown date={offerDetails.deadline} /></h4>

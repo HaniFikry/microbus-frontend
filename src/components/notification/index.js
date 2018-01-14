@@ -1,5 +1,5 @@
 import React , {Component} from 'react'
-import { Menu, Dropdown, Icon, Badge } from 'antd';
+import { Menu, Dropdown, Badge } from 'antd';
 import './style.css'
 import {Link} from 'react-router-dom'
 import Cable from 'actioncable';

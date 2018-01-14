@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Button, ProgressBar} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import {ProgressBar} from 'react-bootstrap'
 import './style.css'
 
 
@@ -16,12 +15,12 @@ export default class OfferCompleted extends Component {
     }
 }
   render(){
-    const {offerDetails, user, buyItem, saveLocation, offerBuyers} = this.props;
-    if (offerDetails.status == 'completed') {
+    const {offerDetails, offerBuyers} = this.props;
+    if (offerDetails.status === 'completed') {
       return (
         <div className='offerDetails'>
           <p> Congratulations, Your offer {offerDetails.name} on {offerDetails.product_name} was successful </p>
-          <img src={offerDetails.thumbnail} />
+          <img src={offerDetails.thumbnail} alt="offer success"/>
 
            <ProgressBar active now={offerDetails.progress} label={`${offerDetails.buying_consumers} of ${offerDetails.target_count} users bought this offer`}/>
            <p id="seller-message"> We expect You to start processing the order soon, here is a list of your buyers </p>
@@ -38,7 +37,7 @@ export default class OfferCompleted extends Component {
       return (
         <div className='offerDetails'>
           <p> Sorry, Your offer {offerDetails.name} on {offerDetails.product_name} was not successful </p>
-          <img src={offerDetails.thumbnail} />
+          <img src={offerDetails.thumbnail} alt="offer success"/>
 
            <ProgressBar active now={offerDetails.progress} label={`${offerDetails.buying_consumers} of ${offerDetails.target_count} users bought this offer`}/>
 

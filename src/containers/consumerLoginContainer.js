@@ -7,7 +7,7 @@ import history from '../history'
 
 const mapStateToProps = function(state) {
   return {
-    error:  state.microbus.error,
+    error:  state.consumer.error,
   }
 }
 

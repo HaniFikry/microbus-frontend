@@ -3,8 +3,8 @@ import {fetchWishListLoading, fetchWishList, fetchWishListSuccess, fetchWishList
 import ConsumerWishlist from '../components/consumer_wishlist'
 const mapStateToProps = function(state) {
   return {
-  wishlists: state.microbus.wishlist,
-  user: state.microbus.user
+  wishlists: state.consumer.wishlist,
+  user: state.consumer.user
   }
 }
 

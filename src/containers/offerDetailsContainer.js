@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 import offerDetails from '../components/offerDetails'
 import {fetchOfferDetails, fetchOfferDetailsLoading, fetchOfferDetailsSuccess, fetchOfferDetailsFailure} from '../actions/offer'
-import {buyOfferLoading, buyOffer, buyOfferSuccess, buyOfferFailure} from '../actions/buy_offer'
+import {buyOffer, buyOfferSuccess} from '../actions/buy_offer'
 import history from '../history'
 import {saveCurrentLocation} from '../actions/consumer'
 
@@ -9,7 +9,7 @@ import {saveCurrentLocation} from '../actions/consumer'
 const mapStateToProps = function(state) {
   return {
     offerDetails : state.offer.offerDetails,
-    user: state.microbus.user
+    user: state.consumer.user
   }
 }
 

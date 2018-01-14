@@ -36,7 +36,7 @@ export default function(currentState = INITIAL_STATE, action) {
         ...currentState,
         loading:false,
         notifications: [...currentState.notifications.map(notification => {
-                if (notification.id == action.notification.notification.id){
+                if (notification.id === action.notification.notification.id){
                   notification.isRead = true
                 }
                 return notification;

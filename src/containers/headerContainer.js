@@ -1,14 +1,14 @@
 import Header from '../components/header'
 import {connect} from 'react-redux'
 import {userLogout, fetchUser, fetchUserSuccess} from '../actions/consumer'
-import {vendorLogout, fetchVendor, fetchVendorSuccess} from '../actions/vendor'
+import {vendorLogout, fetchVendorSuccess} from '../actions/vendor'
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import history from '../history'
 
 
 const mapStateToProps = function(state) {
   return {
-  user: state.microbus.user,
+  user: state.consumer.user,
   vendor: state.vendor.user
   }
 }
@@ -31,9 +31,9 @@ const mapDispatchToProps = function(dispatch) {
     getUser: function(){
       dispatch(fetchUser()).then(function(response){
         if(response.payload.status < 400){
-        if (response.payload.data.user_type == 'vendor'){
+        if (response.payload.data.user_type === 'vendor'){
         dispatch(fetchVendorSuccess(response));
-      } else if (response.payload.data.user_type == 'consumer') {
+      } else if (response.payload.data.user_type === 'consumer') {
         dispatch(fetchUserSuccess(response));
       }
       }

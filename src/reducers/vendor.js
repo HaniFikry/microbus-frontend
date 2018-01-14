@@ -119,20 +119,20 @@ export default function(currentState = INITIAL_STATE, action) {
         }
         case DELETE_PRODUCTLIST_ITEM_LOADING:
         var newproduct_list = currentState.product_list.map(item => {
-        if (item.id == action.id) item.loading = true;
+        if (item.id === action.id) item.loading = true;
         return item;
         })
         return {...currentState, product_list: newproduct_list}
 
         case DELETE_PRODUCTLIST_ITEM_SUCCESS:
-        var newproduct_list = currentState.product_list.filter(item => {
+        newproduct_list = currentState.product_list.filter(item => {
         return item.id !== action.id
         })
         return {...currentState, product_list: newproduct_list}
 
         case DELETE_PRODUCTLIST_ITEM_FAILURE:
-        var newproduct_list = currentState.product_list.map(item => {
-        if (item.id == action.id) {item.loading = false; item.error = action.error}
+        newproduct_list = currentState.product_list.map(item => {
+        if (item.id === action.id) {item.loading = false; item.error = action.error}
         return item;
         })
         return {...currentState, product_list: newproduct_list}

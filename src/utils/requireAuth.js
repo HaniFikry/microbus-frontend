@@ -21,7 +21,7 @@ class Authenticate extends Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.microbus.user,
+    user: state.consumer.user,
     vendor: state.vendor.user
   }
 }

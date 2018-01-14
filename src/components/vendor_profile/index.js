@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 import VendorOffers from '../../containers/vendorOffersContainer'
 import VendorProducts from '../../containers/vendorProfileContainer'
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-const { Header, Content, Footer, Sider } = Layout;
-const SubMenu = Menu.SubMenu;
+import { Layout, Menu, Icon } from 'antd';
+const { Content, Sider } = Layout;
 
 
 export default class ProfileSider extends Component {
@@ -44,7 +43,7 @@ export default class ProfileSider extends Component {
             <Content style={{ margin: '0 16px' }}>
             <div className="tab-content">
               {
-                (this.state.page == 'products') ?
+                (this.state.page === 'products') ?
                 <VendorProducts /> : <VendorOffers />
               }
             </div>

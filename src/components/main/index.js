@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './style.css';
 import {Link} from 'react-router-dom';
-import {  Image, Grid, Col, Row, Thumbnail, Button, Jumbotron } from 'react-bootstrap';
+import {Thumbnail, Button, Jumbotron } from 'react-bootstrap';
 import LatestOffers from '../../containers/latestOffersContainer'
 import { Carousel } from 'antd';
 
@@ -57,21 +57,3 @@ export default class Main extends Component {
 	}
 
 }
-
-        //  {
-        //   topOffers.map((offer) =>
-        //   	{
-	       //      if (offer.status === 'completed') {
-	       //        return (
-		      //         <div>
-		      //         	<h1> hamadaa </h1>
-		      //           <h3>{offer.name} </h3>
-		      //           <Link to={`/offers/${offer.id}`} >Buy now</Link>
-		      //           <p> {offer.price} </p>h
-		      //         </div>
-	       //        )
-	       //      }
-	       //    }
-
-        // 	)
-        // }

@@ -31,7 +31,7 @@ export default class NewVendor extends Component {
   render(){
     const {registerVendor, error, message} = this.props;
     return(
-<<<<<<< HEAD
+
       <div>
         <h2 className="secondary-header"> Register As Vendor </h2>
         {
@@ -54,12 +54,11 @@ export default class NewVendor extends Component {
 
       }
 
-      <form onSubmit={(event) => {event.preventDefault(); registerVendor(this.state)}}>
 
-=======
+
       <div className="register">
         <form onSubmit={(event) => {event.preventDefault(); registerVendor(this.state)}}>
->>>>>>> bd48e4b6a7b5f209b1d3ce2bbead53337ed4b47a
+
           <div>
            <label>
              <p> Name: </p>
@@ -87,6 +86,7 @@ export default class NewVendor extends Component {
           <input className="submit" type="submit" value="Register"  />
         </form>
       </div>
+    </div>
     )
   }
 }

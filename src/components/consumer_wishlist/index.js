@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Search from '../../containers/searchContainer'
 import './style.css'
-import {Link} from 'react-router-dom'
 
 
 
@@ -11,10 +10,10 @@ componentWillMount(){
   this.props.getWishlist()
 }
 render(){
-  const {wishlists, user, deleteItem} = this.props;
+  const {wishlists, deleteItem} = this.props;
   return(
-    <div className="consumer_wishlist">
-      <h1> Wishlist</h1>
+    <div>
+      <h1> WISH LIST </h1>
       <Search button_name={'Add item to wishlist'} vendor={false}/>
       <ul className="wishlist">
           {

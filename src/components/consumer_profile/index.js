@@ -2,10 +2,10 @@ import React, {Component} from 'react'
 import ConsumerOffers from '../../containers/consumerOffersContainer'
 import ConsumerWishlist from '../../containers/consumerWishlistContainer'
 import MakmakStore from '../../components/store'
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
 import './style.css'
-const { Header, Content, Footer, Sider } = Layout;
-const SubMenu = Menu.SubMenu;
+const { Content, Sider } = Layout;
+
 
 
 
@@ -54,8 +54,8 @@ export default class ProfileSider extends Component {
 
             <div className="tab-content">
               {
-              (this.state.page == 'wishlist') ?
-              <ConsumerWishlist /> : (this.state.page == 'offers') ? <ConsumerOffers /> : <MakmakStore />
+              (this.state.page === 'wishlist') ?
+              <ConsumerWishlist /> : (this.state.page === 'offers') ? <ConsumerOffers /> : <MakmakStore />
               }
             </div>
 

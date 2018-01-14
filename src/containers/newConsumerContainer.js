@@ -5,8 +5,8 @@ import history from '../history'
 
 const mapStateToProps = function(state) {
   return {
-    error:  state.microbus.error,
-    message: state.microbus.message
+    error:  state.consumer.error,
+    message: state.consumer.message
   }
 }
 

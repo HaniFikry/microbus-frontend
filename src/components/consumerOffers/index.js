@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
 import {ProgressBar} from 'react-bootstrap'
-import './style.css'
-
 
 
 export default class ConsumerOffers extends Component {
@@ -15,12 +13,12 @@ export default class ConsumerOffers extends Component {
       <div>
         {
           boughtOffers.map((offer) =>
-            <div className='clearfix offer_card'>
-              <img src={offer.thumbnail} />
+            <div className='offer_card'>
               <h1> {offer.name}  </h1>
               <h2>{offer.status} </h2>
               <div className="progress"><ProgressBar active now={offer.progress} /></div>
               <p> {offer.description} </p>
+              <img src={offer.thumbnail} alt="product" />
             </div>
         )
         }

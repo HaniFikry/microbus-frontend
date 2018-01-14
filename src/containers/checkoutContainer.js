@@ -5,8 +5,8 @@ import history from '../history'
 
 const mapStateToProps = function(state){
   return {
-  url: state.microbus.prevUrl,
-  message: state.microbus.message
+  url: state.consumer.prevUrl,
+  message: state.consumer.message
   }
 }
 
@@ -21,7 +21,7 @@ const mapDispatchToProps = function(dispatch){
           dispatch(chargeMakmaksSuccess(response))
           setTimeout(() => {
           dispatch(clearChargeSuccessMessage())
-          history.push(url)  
+          history.push(url)
         }, 5000)
         } else {
           dispatch(chargeMakmaksFailure(response.payload.error))

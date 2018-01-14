@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-import {Route, Link} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import New from './containers/newConsumerContainer'
 import Login from './containers/consumerLoginContainer'
 import NewVendor from './containers/newVendorContainer'
 import VendorLogin from './containers/vendorLoginContainer'
 import Header from './containers/headerContainer'
-import search from './components/search'
 import consumer_profile from './components/consumer_profile'
 import offerForm from './containers/offerFormContainer'
 import offersList from './containers/offersListContainer'

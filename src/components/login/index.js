@@ -48,13 +48,13 @@ export default class Login extends Component {
             <div>
               <label>
                 <p> Email: </p>
-                <input type="text" value={this.state.email} name='email' onChange={this.handleChange.bind(this)} required={true}/>
+                <input type="text" value={this.state.email} name='email' onChange={this.handleChange.bind(this)} required={true} />
               </label>
             </div>
             <div>
               <label>
                 <p> Password: </p>
-                <input type="password" value={this.state.password} name='password' onChange={this.handleChange.bind(this)} required={true}/>
+                <input type="password" value={this.state.password} name='password' onChange={this.handleChange.bind(this)} required={true} />
               </label>
             </div>
             <input className="submit" type="submit" value="Login"  />

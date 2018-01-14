@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import {addItemToWishlistLoading, addItemToWishlist, addItemToWishlistSuccess, addItemToWishlistFailure, createWishlistItemLoading, createWishlistItem, createWishlistItemSuccess, createWishlistItemFailure} from '../actions/consumer'
-import {addItemToProductlist, addItemToProductlistLoading, addItemToProductlistSuccess, addItemToProductlistFailure, createProductlistItemLoading, createProductlistItem, createProductlistItemSuccess, createProductlistItemFailure} from '../actions/vendor'
+import {addItemToProductlist, addItemToProductlistSuccess, addItemToProductlistFailure, createProductlistItemLoading, createProductlistItem, createProductlistItemSuccess, createProductlistItemFailure} from '../actions/vendor'
 import search from '../components/search'
 
 const mapDispatchToProps = function(dispatch) {
