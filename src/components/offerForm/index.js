@@ -74,7 +74,7 @@ export default class OfferForm extends Component {
              description={singleError}
              type="error"
              closable
-          />
+          /> 
         ) : null
        }
         <h3 className="offer-for"> OFFER FOR ITEM: {singleProduct.product_name} </h3>
