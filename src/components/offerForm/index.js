@@ -68,13 +68,13 @@ export default class OfferForm extends Component {
         <h2 className="secondary-header"> New offer! </h2>
         {
           error ?
-          console.log(error)
-          // <Alert
-          //    description={error}
-          //    type="error"
-          //    closable
-          // />
-          : null
+          error.map((singleError) =>
+          <Alert
+             description={singleError}
+             type="error"
+             closable
+          />
+        ) : null
        }
         <h3 className="offer-for"> OFFER FOR ITEM: {singleProduct.product_name} </h3>
         {this.props.match.params.id}
