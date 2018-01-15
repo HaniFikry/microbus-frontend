@@ -11,7 +11,19 @@
   margin-top: 20px;
 }
 
-offerDetails img {
+.offerDetails img {
   max-height: 400px;
   max-width: 380px;
+}
+
+@media (max-width: 700px){
+
+  .offerDetails {
+    width: 80%;
+  }
+
+  .offerDetails img {
+    max-height: 200px;
+    max-width: 190px;
+  }
 }

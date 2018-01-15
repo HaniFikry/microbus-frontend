@@ -19,6 +19,8 @@ export default class ProfileSider extends Component {
         <h2 className="secondary-header"> My Profile </h2>
         <Layout style={{ minHeight: '100vh' }}>
           <Sider
+            breakpoint="sm"
+            collapsedWidth="80"
             collapsible
             collapsed={this.state.collapsed}
             onCollapse={this.onCollapse}

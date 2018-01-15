@@ -54,7 +54,7 @@ render(){
             {
               notifications.map((notification) =>
                 <Menu.Item>
-                  <Link onClick={() => {notification.isRead ? '' : markAsRead(notification)}} to={`/offers/${notification.offer_id}`} >{notification.isRead ? notification.body : <strong>{notification.body}</strong>}</Link>
+                  <Link onClick={() => {notification.isRead ? '' : markAsRead(notification)}} to={`/offers/${notification.offer_id}`} className="notification-item" >{notification.isRead ? notification.body : <strong>{notification.body}</strong>}</Link>
                 </Menu.Item>
 
               )
@@ -82,7 +82,6 @@ render(){
               vendor_notifications.map((notification) =>
                 <Menu.Item>
                   <Link onClick={() => {notification.isRead ? '' : markVendorNotificationAsRead(notification)}} to={`/offer/${notification.offer_id}/completed`}>{notification.isRead ? notification.body : <strong>{notification.body}</strong>}</Link>
-                  {/* <Link to={`/offers/${notification.offer_id}`}>{notification.body}</Link> <input type="checkbox" checked={notification.isRead} onChange={() => markAsRead(notification)} /> */}
                 </Menu.Item>
 
               )

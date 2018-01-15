@@ -6,5 +6,5 @@
   font-size: 16px;
 }
 .ant-dropdown-menu-item a {
-  display: inline-block;
+  display: block;
 }

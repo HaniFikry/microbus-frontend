@@ -23,6 +23,8 @@ export default class ProfileSider extends Component {
       <h2 className="secondary-header"> My Profile </h2>
       <Layout style={{ minHeight: '88vh' }}>
         <Sider
+          breakpoint="sm"
+          collapsedWidth="80"
           collapsible
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
@@ -32,7 +34,7 @@ export default class ProfileSider extends Component {
             <Menu.Item key="1" >
               <div className="profile-tab" onClick={() => {this.setState({page: "wishlist"}); console.log(this.state)}}>
                 <Icon type="pie-chart" />
-                <span className="profile-tab">Product list</span>
+                <span className="profile-tab">Wishlist</span>
               </div>
             </Menu.Item>
             <Menu.Item key="2" >

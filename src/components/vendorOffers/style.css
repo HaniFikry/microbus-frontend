@@ -45,22 +45,48 @@
 
 @media (max-width: 700px){
 
+  .offer_card {
+    width: 300px;
+  }
+
   .offer_card img {
     width:30%;
   }
   .progress {
     width: 200px;
   }
-}
 
 .btn-toolbar {
-    width: 400px;
+    width: 300px;
     margin: 0 auto;
 }
 
+.filter .btn-default {
+  width: 25%;
+  font-size: 15px;
+  padding:  5px 10px;
+}
+
+.filter button:first-of-type {
+  width: 15%;
+}
+
+.filter button:nth-of-type(2) {
+  width: 35%;
+}
+.ant-layout-sider-collapsed .ant-layout-sider-trigger {
+  width: 80px !important;
+}
+
+
+}
+
 @media (min-width: 1200px){
-  .container {
-    width: 100%
+
+
+  .btn-toolbar {
+      width: 400px;
+      margin: 0 auto;
   }
 
 }

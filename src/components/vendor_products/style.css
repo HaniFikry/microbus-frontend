@@ -34,10 +34,7 @@
   margin-top: 50px;
 }
 
-/*.product_catalogue h2 {
-  margin-left: -200px;
-}
-*/
+
 .tabs {
   width: 500px;
   margin: 0 auto;
@@ -50,6 +47,6 @@
 
 @media (max-width: 700px){
   .productlist li{
-    width: 90%;
+    width: 300px;
   }
 }
