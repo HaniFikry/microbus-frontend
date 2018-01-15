@@ -47,6 +47,8 @@
 
 @media (max-width: 700px){
   .productlist li{
-    width: 300px;
+    min-width: 250px;
+    width: 90%;
+
   }
 }

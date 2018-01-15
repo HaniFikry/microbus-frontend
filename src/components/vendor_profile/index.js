@@ -30,13 +30,13 @@ export default class ProfileSider extends Component {
               <Menu.Item key="1" >
                 <div className="profile-tab" onClick={() => {this.setState({page: "offers"}); console.log(this.state)}}>
                   <Icon type="pie-chart" />
-                  <span className="profile-tab">Current Offers</span>
+                  <span className="profile-tab">My Offers</span>
                 </div>
               </Menu.Item>
               <Menu.Item key="2" >
                 <div className="profile-tab" onClick={() => this.setState({page: "products"})}>
-                  <Icon type="desktop" />
-                  <span>Product list</span>
+                  <Icon type="bars" />
+                  <span className="profile-tab">My Products</span>
                 </div>
               </Menu.Item>
             </Menu>

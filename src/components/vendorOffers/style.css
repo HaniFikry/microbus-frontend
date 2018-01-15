@@ -46,7 +46,8 @@
 @media (max-width: 700px){
 
   .offer_card {
-    width: 300px;
+    width: 90%;
+    min-width: 250px;
   }
 
   .offer_card img {
@@ -57,7 +58,8 @@
   }
 
 .btn-toolbar {
-    width: 300px;
+    width: 90%;
+    min-width: 300px;
     margin: 0 auto;
 }
 

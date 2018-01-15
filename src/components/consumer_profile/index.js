@@ -33,19 +33,19 @@ export default class ProfileSider extends Component {
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1" >
               <div className="profile-tab" onClick={() => {this.setState({page: "wishlist"}); console.log(this.state)}}>
-                <Icon type="pie-chart" />
+                <Icon type="bars" />
                 <span className="profile-tab">Wishlist</span>
               </div>
             </Menu.Item>
             <Menu.Item key="2" >
               <div className="profile-tab" onClick={() => this.setState({page: "offers"})}>
-                <Icon type="desktop" />
+                <Icon type="gift" />
                 <span>My bought offers</span>
               </div>
             </Menu.Item>
             <Menu.Item key="3" >
               <div className="profile-tab" onClick={() => this.setState({page: "makmaks"})}>
-                <Icon type="desktop" />
+                <Icon type="shopping-cart" />
                 <span>Charge Makmaks</span>
               </div>
             </Menu.Item>
